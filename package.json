@@ -1,5 +1,5 @@
 {
-  "name": "my-ng-app",
+  "name": "first-angular-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
