@@ -1,0 +1,40 @@
+.post-form-card {
+  max-width: 600px; /* Limit card width for a cleaner look */
+  /* Center the card horizontally */
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  /* Add some top margin for positioning */
+  margin: 50px auto 0;
+}
+
+.full-width {
+  width: 100%; /* Ensure form fields span the card width */
+  margin-bottom: 16px; /* Space between fields */
+}
+
+mat-form-field {
+  display: block; /* Stack fields vertically */
+}
+
+.button-container {
+  display: flex;
+  gap: 16px; /* Space between buttons */
+  margin-top: 24px; /* Space above buttons */
+}
+
+mat-slide-toggle {
+  margin: 16px 0; /* Space around the toggle */
+}
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1976d2; /* Match Material primary color */
+  text-align: center;
+}
+
+mat-card-content {
+  padding: 16px 0;
+}

@@ -1,15 +1,18 @@
 .post-list-card {
-  margin: 20px;
-  padding: 20px;
-  background: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 900px; /* Wider card for the table */
+  margin: 0 auto; /* Center the card horizontally */
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  margin-top: 50px; /* Add some top margin for positioning */
 }
 
 .add-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 1000; /* Ensure it stays on top */
 }
 
 mat-table {
@@ -18,6 +21,27 @@ mat-table {
 }
 
 mat-row:hover {
-  background-color: #e0e0e0;
+  background-color: #f5f5f5; /* Light gray hover for rows */
   cursor: pointer;
+}
+
+mat-header-cell, mat-cell {
+  padding: 16px 24px; /* Increased padding for better spacing */
+  font-size: 14px;
+}
+
+mat-header-row {
+  background-color: #1976d2; /* Material primary color for header */
+  color: white;
+}
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #1976d2; /* Match Material primary color */
+  text-align: center;
+}
+
+mat-card-content {
+  padding: 16px 0;
 }

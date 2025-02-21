@@ -12,3 +12,6 @@ export const routes: Routes = [
   { path: 'edit/:id', component: PostEditComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
+
+
+
