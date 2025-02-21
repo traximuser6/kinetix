@@ -1,24 +1,26 @@
 import { Component, Inject, inject } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { Router, RouterLink } from '@angular/router';
 import { MatCard, MatCardActions, MatCardContent, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
+import { MatSlideToggle } from "@angular/material/slide-toggle";
 import { DatePipe } from "@angular/common";
-import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-post-detail-dialog',
   standalone: true,
   imports: [
     MatDialogModule,
+    RouterLink,
     MatCard,
     MatCardTitle,
     MatCardSubtitle,
     MatCardContent,
     MatCardActions,
     MatButton,
-    DatePipe,
-    RouterLink
+    MatSlideToggle,
+    DatePipe
   ],
   template: `
     <mat-dialog-content>
@@ -29,26 +31,33 @@ import { RouterLink } from "@angular/router";
           <p><strong>Excerpt:</strong> {{ data.post.excerpt }}</p>
           <p><strong>Description:</strong> {{ data.post.description }}</p>
           <p><strong>Published:</strong>
-            <span class="published-capsule" [class.published]="data.post.is_published" [class.unpublished]="!data.post.is_published">
+            <mat-slide-toggle [checked]="data.post.is_published" disabled class="full-width">
               {{ data.post.is_published ? 'Yes' : 'No' }}
-            </span>
+            </mat-slide-toggle>
           </p>
           <p><strong>Created At:</strong> {{ data.post.created_at | date }}</p>
           <p><strong>Updated At:</strong> {{ data.post.updated_at | date }}</p>
         </mat-card-content>
         <mat-card-actions>
           <button mat-button color="primary" (click)="dialogRef.close()">Close</button>
-          <button mat-button color="accent" [routerLink]="['/edit', data.post.id]">Edit</button>
+          <button mat-button color="accent" (click)="navigateToEdit()">Edit</button>
         </mat-card-actions>
       </mat-card>
     </mat-dialog-content>
   `,
   styleUrls: ['./post-detail-dialog.component.css']
 })
-
 export class PostDetailDialogComponent {
   protected dialogRef = inject(MatDialogRef<PostDetailDialogComponent>);
+  private router = inject(Router);
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: { post: Post }) {
+  }
+
+  navigateToEdit(): void {
+    this.router.navigate(['/edit', this.data.post.id]).then(() => {
+      // Optionally, you can log or handle navigation success/failure
+      console.log('Navigated to edit page');
+    });
   }
 }

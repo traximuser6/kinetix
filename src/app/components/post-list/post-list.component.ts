@@ -1,5 +1,4 @@
-// src/app/components/post-list/post-list.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post.model';
 import { MatTableDataSource } from '@angular/material/table';
@@ -9,6 +8,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { PostDetailDialogComponent } from "../post-detail-dialog/post-detail-dialog.component";
 import { SlicePipe } from "@angular/common";
 
 @Component({
@@ -21,7 +22,9 @@ import { SlicePipe } from "@angular/common";
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    SlicePipe
+    MatDialogModule,
+    SlicePipe,
+    // Add MatDialogModule for the dialog
   ],
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
@@ -29,9 +32,12 @@ import { SlicePipe } from "@angular/common";
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
   dataSource = new MatTableDataSource<Post>(this.posts);
-  displayedColumns: string[] = ['id', 'title', 'slug', 'is_published', 'description', 'actions']; // Updated to include description
+  displayedColumns: string[] = ['id', 'title', 'slug', 'is_published', 'description', 'actions'];
 
-  constructor(private postService: PostService) {
+  private postService = inject(PostService);
+  private dialog = inject(MatDialog); // Inject MatDialog
+
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -47,6 +53,20 @@ export class PostListComponent implements OnInit {
         this.posts = posts;
         this.dataSource.data = this.posts;
       });
+    });
+  }
+
+  openPostDetail(post: Post): void {
+    if (!post) {
+      console.error('No post data available.');
+      return;
+    }
+
+    this.dialog.open(PostDetailDialogComponent, {
+      data: {post: post},
+      width: '600px',
+      maxWidth: '90vw',
+      panelClass: 'post-detail-dialog'
     });
   }
 }
