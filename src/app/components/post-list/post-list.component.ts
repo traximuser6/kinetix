@@ -28,7 +28,8 @@ export class PostListComponent implements OnInit {
   dataSource = new MatTableDataSource<Post>(this.posts);
   displayedColumns: string[] = ['id', 'title', 'slug', 'is_published', 'actions'];
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService) {
+  }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(posts => {

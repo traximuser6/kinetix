@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { Post } from "../models/post.model";
 import { Observable, of } from "rxjs";
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +33,8 @@ export class PostService {
   ];
 
   // define empty constructor i dont know why
-  constructor() { }
+  constructor() {
+  }
 
   // now access modifier are needed with the methods inside the service, My assumption
   getPosts(): Observable<Post[]> {
@@ -53,7 +53,6 @@ export class PostService {
     this.posts.push(post);
     return of(post)
   }
-
 
   updatePost(post: Post): Observable<Post> {
     const index = this.posts.findIndex(p => p.id === post.id);

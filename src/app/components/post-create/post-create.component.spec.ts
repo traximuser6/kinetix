@@ -10,8 +10,8 @@ describe('PostCreateComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PostCreateComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PostCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
