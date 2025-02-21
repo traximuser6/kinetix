@@ -4,7 +4,7 @@
   padding: 24px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  box-shadow: 0 3px 25px 5px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
   /* Add some top margin for positioning */
   margin: 50px auto 0;
 }

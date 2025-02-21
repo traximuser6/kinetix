@@ -1,42 +1,69 @@
 <mat-card class="post-list-card">
+
+  <!-- card title -->
   <mat-card-title>Posts</mat-card-title>
+
+  <!-- card content -->
   <mat-card-content>
+
+    <!-- create button -->
     <button mat-fab color="primary" routerLink="/create" class="add-button">
       <mat-icon>add</mat-icon>
     </button>
+
+    <!-- table data list -->
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
         <mat-cell *matCellDef="let post"> {{ post.id }}</mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef> Title</mat-header-cell>
         <mat-cell *matCellDef="let post"> {{ post.title }}</mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="slug">
         <mat-header-cell *matHeaderCellDef> Slug</mat-header-cell>
         <mat-cell *matCellDef="let post"> {{ post.slug }}</mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="is_published">
         <mat-header-cell *matHeaderCellDef> Published</mat-header-cell>
         <mat-cell *matCellDef="let post"> {{ post.is_published ? 'Yes' : 'No' }}</mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
         <mat-cell *matCellDef="let post">
+
+          <!-- eye - show button -->
           <button mat-icon-button color="primary" [routerLink]="['/post', post.id]">
             <mat-icon>visibility</mat-icon>
           </button>
+
+          <!-- pencil - edit button -->
           <button mat-icon-button color="accent" [routerLink]="['/edit', post.id]">
             <mat-icon>edit</mat-icon>
           </button>
+
+          <!-- basket - delete button -->
           <button mat-icon-button color="warn" (click)="deletePost(post.id)">
             <mat-icon>delete</mat-icon>
           </button>
+
         </mat-cell>
       </ng-container>
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
     </mat-table>
+
   </mat-card-content>
+
 </mat-card>
+
+
