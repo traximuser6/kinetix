@@ -1,39 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+// src/app/components/post-detail/post-detail.component.ts
+import { Component, OnInit, inject } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { MatCard, MatCardActions, MatCardContent, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButton } from "@angular/material/button";
-import { DatePipe } from "@angular/common";
+import { PostDetailDialogComponent } from "../post-detail-dialog/post-detail-dialog.component"; // Create this new component
 
 @Component({
   selector: 'app-post-detail',
   standalone: true,
   imports: [
-    MatCard,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatCardContent,
-    MatCardActions,
     RouterLink,
+    MatDialogModule,
     MatButton,
-    DatePipe
+    PostDetailDialogComponent
   ],
-  templateUrl: './post-detail.component.html',
-  styleUrl: './post-detail.component.css'
+  template: `
+    <button mat-raised-button color="primary" (click)="openDialog()">View Post Details</button>
+  `,
+  styleUrls: ['./post-detail.component.css']
 })
-
 export class PostDetailComponent implements OnInit {
-
   post: Post | undefined;
-
-  constructor(private postService: PostService, private route: ActivatedRoute) {
-  }
+  private postService = inject(PostService);
+  private route = inject(ActivatedRoute);
+  private dialog = inject(MatDialog);
 
   ngOnInit(): void {
-    // todo : dig dive into this deeper (route param map)
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.postService.getPost(id).subscribe(post => this.post = post)
+    if (id) {
+      this.postService.getPost(id).subscribe({
+        next: (post) => this.post = post,
+        error: (err) => console.error('Error fetching post:', err)
+      });
+    } else {
+      console.error('Invalid post ID.');
+    }
   }
 
+  openDialog(): void {
+    if (this.post) {
+      this.dialog.open(PostDetailDialogComponent, {
+        data: {post: this.post},
+        width: '600px',
+        maxWidth: '90vw',
+        panelClass: 'post-detail-dialog'
+      });
+    }
+  }
 }
