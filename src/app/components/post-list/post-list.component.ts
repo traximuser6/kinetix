@@ -1,4 +1,4 @@
-
+// src/app/components/post-list/post-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post.model';
@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SlicePipe } from "@angular/common";
 
 @Component({
   selector: 'app-post-list',
@@ -17,18 +19,20 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule,
+    SlicePipe
   ],
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
-
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
   dataSource = new MatTableDataSource<Post>(this.posts);
-  displayedColumns: string[] = ['id', 'title', 'slug', 'is_published', 'actions'];
+  displayedColumns: string[] = ['id', 'title', 'slug', 'is_published', 'description', 'actions']; // Updated to include description
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService) {
+  }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(posts => {

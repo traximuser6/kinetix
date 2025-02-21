@@ -58,5 +58,55 @@
     "is_published": true,
     "created_at": "2025-02-05T15:10:00Z",
     "updated_at": "2025-02-14T09:25:00Z"
+  },
+  {
+    "id": 7,
+    "title": "The Psychology of Habits: How to Build Lasting Routines",
+    "slug": "psychology-of-habits",
+    "excerpt": "Understanding how habits form can help you make lasting changes.",
+    "description": "Habits shape our daily lives, but how are they formed? This article explores the science behind habit formation and provides practical tips to create positive routines.",
+    "is_published": true,
+    "created_at": "2025-01-10T10:30:00Z",
+    "updated_at": "2025-01-15T11:20:00Z"
+  },
+  {
+    "id": 8,
+    "title": "Space Exploration in 2030: What’s Next for NASA & SpaceX?",
+    "slug": "space-exploration-2030",
+    "excerpt": "Humanity is heading to Mars and beyond—here’s what’s next.",
+    "description": "With private companies like SpaceX and Blue Origin competing with government agencies like NASA, space exploration is entering a new era. What missions and innovations are planned for 2030?",
+    "is_published": false,
+    "created_at": "2025-02-22T09:00:00Z",
+    "updated_at": "2025-02-22T09:00:00Z"
+  },
+  {
+    "id": 9,
+    "title": "The Impact of Social Media on Mental Health",
+    "slug": "social-media-mental-health",
+    "excerpt": "Is social media harming or helping our mental well-being?",
+    "description": "Social media connects people across the world, but it also has psychological effects. This article explores the pros and cons of social media on mental health and how to use it wisely.",
+    "is_published": true,
+    "created_at": "2025-02-01T13:20:00Z",
+    "updated_at": "2025-02-10T16:00:00Z"
+  },
+  {
+    "id": 10,
+    "title": "The Evolution of Cybersecurity: Protecting Your Data in 2025",
+    "slug": "cybersecurity-evolution-2025",
+    "excerpt": "Cyber threats are evolving—learn how to stay protected.",
+    "description": "From phishing attacks to data breaches, cyber threats are constantly changing. This article discusses the latest security trends and tips to safeguard your personal and business data.",
+    "is_published": false,
+    "created_at": "2025-02-19T12:00:00Z",
+    "updated_at": "2025-02-21T15:30:00Z"
+  },
+  {
+    "id": 11,
+    "title": "The Science of Sleep: Why Rest is Crucial for Success",
+    "slug": "science-of-sleep",
+    "excerpt": "Getting better sleep can improve focus, productivity, and health.",
+    "description": "Sleep is essential for brain function and well-being. Learn about the science of sleep, how it affects your body, and tips for achieving better rest.",
+    "is_published": true,
+    "created_at": "2025-02-07T21:30:00Z",
+    "updated_at": "2025-02-12T18:40:00Z"
   }
 ]

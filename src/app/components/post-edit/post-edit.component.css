@@ -1,40 +1,76 @@
 .post-form-card {
   max-width: 600px; /* Limit card width for a cleaner look */
-  /* Center the card horizontally */
+  margin: 50px auto 0; /* Center the card horizontally with top margin */
   padding: 24px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
-  /* Add some top margin for positioning */
-  margin: 50px auto 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Softer, deeper shadow for a premium feel */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+}
+
+.post-form-card:hover {
+  transform: translateY(-2px); /* Slight lift on hover for interactivity */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .full-width {
   width: 100%; /* Ensure form fields span the card width */
-  margin-bottom: 16px; /* Space between fields */
+  margin-bottom: 20px; /* Slightly more space between fields for readability */
 }
 
 mat-form-field {
   display: block; /* Stack fields vertically */
 }
 
+mat-form-field.mat-focused .mat-form-field-label {
+  color: #1976d2; /* Highlight label color on focus to match primary color */
+}
+
+mat-form-field.mat-focused .mat-form-field-underline {
+  background-color: #1976d2; /* Underline color on focus */
+}
+
 .button-container {
   display: flex;
-  gap: 16px; /* Space between buttons */
-  margin-top: 24px; /* Space above buttons */
+  gap: 20px; /* Slightly more space between buttons */
+  margin-top: 32px; /* More space above buttons for balance */
+  justify-content: center; /* Center buttons horizontally */
+}
+
+button.mat-raised-button {
+  min-width: 120px; /* Ensure buttons have a minimum width for consistency */
+  padding: 12px 24px; /* Larger padding for a more prominent look */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth button animations */
+}
+
+button.mat-raised-button:hover {
+  transform: scale(1.05); /* Slight scale on hover for interactivity */
+}
+
+button.mat-raised-button:disabled {
+  background-color: #cccccc; /* Softer disabled state color */
+  color: #666666; /* Darker text for disabled state */
 }
 
 mat-slide-toggle {
-  margin: 16px 0; /* Space around the toggle */
+  margin: 20px 0; /* More space around the toggle for balance */
+  display: block; /* Ensure toggle is full-width and centered */
 }
 
 mat-card-title {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 28px; /* Slightly larger title for emphasis */
+  font-weight: 600; /* Bolder weight for a stronger look */
   color: #1976d2; /* Match Material primary color */
   text-align: center;
+  margin-bottom: 16px; /* Space below title */
 }
 
 mat-card-content {
   padding: 16px 0;
+}
+
+mat-error {
+  font-size: 12px;
+  color: #d32f2f; /* Material error color for consistency */
+  margin-top: 4px; /* Space above error message */
 }
