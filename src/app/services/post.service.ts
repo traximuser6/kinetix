@@ -32,7 +32,7 @@ export class PostService {
     }
   ];
 
-  // define empty constructor i dont know why
+  // define empty constructor i don't know why
   constructor() {
   }
 
