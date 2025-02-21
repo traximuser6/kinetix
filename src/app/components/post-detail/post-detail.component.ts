@@ -8,7 +8,7 @@ import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-post-detail',
-  standalone: true, // in angular 19, we don't need to do this
+  standalone: true,
   imports: [
     MatCard,
     MatCardTitle,

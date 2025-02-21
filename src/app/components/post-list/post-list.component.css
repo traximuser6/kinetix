@@ -1,11 +1,12 @@
 .post-list-card {
   max-width: 900px; /* Wider card for the table */
-  margin: 0 auto; /* Center the card horizontally */
+  /* Center the card horizontally */
   padding: 24px;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
-  margin-top: 50px; /* Add some top margin for positioning */
+  /* Add some top margin for positioning */
+  margin: 50px auto 0;
 }
 
 .add-button {

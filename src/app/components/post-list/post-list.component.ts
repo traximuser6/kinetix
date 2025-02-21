@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-post-list',
-  standalone: true, // in angular 19, we don't need to do this
+  standalone: true, 
   imports: [
     RouterLink,
     MatCardModule,

@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-post-edit',
-  standalone: true, // in angular 19, we don't need to do this
+  standalone: true, 
   imports: [],
   templateUrl: './post-edit.component.html',
   styleUrl: './post-edit.component.css'
