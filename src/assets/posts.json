@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Mastering Angular: A Beginner's Guide",
+    "slug": "mastering-angular-beginners-guide",
+    "excerpt": "Learn the basics of Angular and build your first app.",
+    "description": "This guide covers the fundamentals of Angular, including components, modules, and data binding. You'll create a simple project and understand the structure of an Angular application.",
+    "is_published": true,
+    "created_at": "2025-02-10T09:30:00Z",
+    "updated_at": "2025-02-15T14:20:00Z"
+  },
+  {
+    "id": 2,
+    "title": "The Rise of AI in Everyday Life",
+    "slug": "ai-in-everyday-life",
+    "excerpt": "How artificial intelligence is shaping our daily routines.",
+    "description": "From virtual assistants to recommendation systems, AI is more present in our lives than ever. This article explores real-world examples of AI applications and what the future holds.",
+    "is_published": true,
+    "created_at": "2025-01-25T11:00:00Z",
+    "updated_at": "2025-02-05T16:45:00Z"
+  },
+  {
+    "id": 3,
+    "title": "10 Productivity Hacks for Remote Workers",
+    "slug": "productivity-hacks-remote-workers",
+    "excerpt": "Tips to stay focused and efficient while working from home.",
+    "description": "Remote work offers flexibility, but it also comes with challenges. Learn the best practices for maintaining productivity, managing distractions, and creating an effective workspace.",
+    "is_published": false,
+    "created_at": "2025-02-18T08:00:00Z",
+    "updated_at": "2025-02-18T08:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "The Future of Electric Vehicles: What to Expect in 2030",
+    "slug": "future-of-electric-vehicles",
+    "excerpt": "EVs are changing the automotive industry. What’s next?",
+    "description": "With advancements in battery technology and charging infrastructure, electric vehicles are becoming more accessible. This article looks at trends and innovations shaping the future of EVs.",
+    "is_published": true,
+    "created_at": "2025-01-30T14:15:00Z",
+    "updated_at": "2025-02-12T10:30:00Z"
+  },
+  {
+    "id": 5,
+    "title": "The Ultimate Guide to Personal Finance in 2025",
+    "slug": "personal-finance-guide-2025",
+    "excerpt": "Smart financial strategies for saving, investing, and budgeting.",
+    "description": "Understanding your finances is key to financial freedom. This guide covers essential topics like budgeting, investing, and managing debt in today's economy.",
+    "is_published": false,
+    "created_at": "2025-02-20T07:45:00Z",
+    "updated_at": "2025-02-20T07:45:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Breaking Down the Latest Web Development Trends",
+    "slug": "web-development-trends-2025",
+    "excerpt": "Stay ahead in the fast-paced world of web development.",
+    "description": "With new frameworks, design principles, and development tools emerging every year, it's important to stay updated. Here’s what’s trending in web development for 2025.",
+    "is_published": true,
+    "created_at": "2025-02-05T15:10:00Z",
+    "updated_at": "2025-02-14T09:25:00Z"
+  }
+]

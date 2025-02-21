@@ -1,74 +1,70 @@
-import { Injectable } from "@angular/core";
-import { Post } from "../models/post.model";
-import { Observable, of } from "rxjs";
+// src/app/services/post.service.ts
+import { Injectable } from '@angular/core';
+import { Post } from '../models/post.model';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class PostService {
+  private postsSubject = new BehaviorSubject<Post[]>([]);
+  posts$: Observable<Post[]> = this.postsSubject.asObservable();
+  private postsUrl = 'assets/posts.json'; // Path to the JSON file
 
-  // define a private data variable
-  private posts: Post[] = [
-    {
-      id: 1,
-      title: 'First Post',
-      slug: 'first-post',
-      excerpt: 'A short summary',
-      description: 'Detailed content here',
-      is_published: true,
-      created_at: new Date(),
-      updated_at: new Date()
-    },
-    {
-      id: 2,
-      title: 'Second Post',
-      slug: 'second-post',
-      excerpt: 'Another summary',
-      description: 'More content here',
-      is_published: false,
-      created_at: new Date(),
-      updated_at: new Date()
-    }
-  ];
-
-  // define empty constructor i don't know why
-  constructor() {
+  constructor(private http: HttpClient) {
+    // Load posts from JSON file when the service is initialized
+    this.loadPosts();
   }
 
-  // now access modifier are needed with the methods inside the service, My assumption
+  private loadPosts(): void {
+    this.http.get<Post[]>(this.postsUrl).pipe(
+      map(posts => posts.map(post => ({
+        ...post,
+        created_at: new Date(post.created_at),
+        updated_at: new Date(post.updated_at)
+      }))),
+      tap(posts => this.postsSubject.next(posts))
+    ).subscribe({
+      error: (err) => console.error('Error loading posts from JSON:', err)
+    });
+  }
+
   getPosts(): Observable<Post[]> {
-    return of(this.posts);
+    return this.posts$;
   }
 
-  // see more about Observable
   getPost(id: number): Observable<Post | undefined> {
-    return of(this.posts.find(post => post.id === id));
+    return this.posts$.pipe(
+      map(posts => posts.find(post => post.id === id))
+    );
   }
 
   addPost(post: Post): Observable<Post> {
-    post.id = Math.floor(Math.random() * 100_000);
-    post.created_at = new Date();
-    post.updated_at = new Date();
-    this.posts.push(post);
-    return of(post)
+    const newPost: Post = {
+      ...post,
+      id: Math.floor(Math.random() * 100_000), // Generate a random ID (replace with backend-generated ID later)
+      created_at: new Date(),
+      updated_at: new Date()
+    };
+    const currentPosts = this.postsSubject.value;
+    const updatedPosts = [...currentPosts, newPost];
+    this.postsSubject.next(updatedPosts);
+    return of(newPost);
   }
 
   updatePost(post: Post): Observable<Post> {
-    const index = this.posts.findIndex(p => p.id === post.id);
-    if (index !== -1) {
-      post.updated_at = new Date();
-      this.posts[index] = post;
-    }
-
+    const currentPosts = this.postsSubject.value;
+    const updatedPosts = currentPosts.map(p => p.id === post.id ? {...post, updated_at: new Date()} : p);
+    this.postsSubject.next(updatedPosts);
     return of(post);
   }
 
   deletePost(id: number): Observable<boolean> {
-    const initialLength = this.posts.length;
-    this.posts = this.posts.filter(post => post.id != id);
-    return of(this.posts.length < initialLength)
+    const currentPosts = this.postsSubject.value;
+    const updatedPosts = currentPosts.filter(post => post.id !== id);
+    this.postsSubject.next(updatedPosts);
+    return of(updatedPosts.length < currentPosts.length);
   }
-
 }
-

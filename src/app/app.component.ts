@@ -9,7 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [RouterOutlet, MatToolbarModule],
   template: `
     <mat-toolbar color="primary">
-      <span>Angular Post CRUD</span>
+      <span>{{ title }}</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,
@@ -20,4 +20,5 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   `]
 })
 export class AppComponent {
+  title = 'first-angular-app';
 }
