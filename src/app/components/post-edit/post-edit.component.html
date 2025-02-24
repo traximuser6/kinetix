@@ -33,7 +33,7 @@
       <mat-slide-toggle formControlName="is_published" class="full-width">Published</mat-slide-toggle>
       <div class="button-container">
         <button mat-raised-button color="primary" type="submit" [disabled]="postForm.invalid">Update Post</button>
-        <button mat-raised-button color="warn" routerLink="/">Cancel</button>
+        <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
       </div>
     </form>
   </mat-card-content>

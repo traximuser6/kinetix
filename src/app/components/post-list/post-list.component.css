@@ -1,5 +1,6 @@
 .post-list-card {
   max-width: 70%; /* Wider card for the table */
+  min-width: 70%;
   margin: 50px auto 0; /* Center the card horizontally with top margin */
   padding: 24px;
   background: #ffffff;

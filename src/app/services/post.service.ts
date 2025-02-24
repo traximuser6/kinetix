@@ -3,7 +3,7 @@ import { Post } from '../models/post.model';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
-import { generateRandomNumber } from '../utils/utils';
+import { generateRandomNumber } from "../utils/utils";
 
 @Injectable({
   providedIn: 'root'

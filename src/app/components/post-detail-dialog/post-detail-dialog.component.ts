@@ -54,6 +54,7 @@ export class PostDetailDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: { post: Post }) { }
 
   navigateToEdit(): void {
+    this.dialogRef.close();
     this.router.navigate(['/edit', this.data.post.id]).then(() => {
       console.log('Navigated to edit page');
     });
