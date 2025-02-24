@@ -1,26 +1,24 @@
-// src/app/components/post-detail/post-detail.component.ts
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButton } from "@angular/material/button";
-import { PostDetailDialogComponent } from "../post-detail-dialog/post-detail-dialog.component"; // Create this new component
+import { PostDetailDialogComponent } from "../post-detail-dialog/post-detail-dialog.component";
 
 @Component({
   selector: 'app-post-detail',
   standalone: true,
   imports: [
-    RouterLink,
     MatDialogModule,
-    MatButton,
-    PostDetailDialogComponent
+    MatButton
   ],
   template: `
     <button mat-raised-button color="primary" (click)="openDialog()">View Post Details</button>
   `,
   styleUrls: ['./post-detail.component.css']
 })
+
 export class PostDetailComponent implements OnInit {
   post: Post | undefined;
   private postService = inject(PostService);
@@ -42,11 +40,12 @@ export class PostDetailComponent implements OnInit {
   openDialog(): void {
     if (this.post) {
       this.dialog.open(PostDetailDialogComponent, {
-        data: {post: this.post},
+        data: { post: this.post },
         width: '600px',
         maxWidth: '90vw',
         panelClass: 'post-detail-dialog'
       });
     }
   }
+  
 }

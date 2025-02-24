@@ -18,6 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     }
   `]
 })
+
 export class AppComponent {
   title = 'first-angular-app';
 }

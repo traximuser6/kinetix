@@ -1,7 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
 import { Post } from '../../models/post.model';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
-import { Router, RouterLink } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MatCard, MatCardActions, MatCardContent, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatButton } from '@angular/material/button';
 import { MatSlideToggle } from "@angular/material/slide-toggle";
@@ -12,7 +12,6 @@ import { DatePipe } from "@angular/common";
   standalone: true,
   imports: [
     MatDialogModule,
-    RouterLink,
     MatCard,
     MatCardTitle,
     MatCardSubtitle,
@@ -47,16 +46,15 @@ import { DatePipe } from "@angular/common";
   `,
   styleUrls: ['./post-detail-dialog.component.css']
 })
+
 export class PostDetailDialogComponent {
   protected dialogRef = inject(MatDialogRef<PostDetailDialogComponent>);
   private router = inject(Router);
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { post: Post }) {
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { post: Post }) {}
 
   navigateToEdit(): void {
     this.router.navigate(['/edit', this.data.post.id]).then(() => {
-      // Optionally, you can log or handle navigation success/failure
       console.log('Navigated to edit page');
     });
   }

@@ -16,7 +16,7 @@ import { MatInput } from "@angular/material/input";
     MatCard,
     MatCardTitle,
     MatCardContent,
-    ReactiveFormsModule, // ✅ Required for FormGroup to work
+    ReactiveFormsModule,
     MatFormField,
     MatSlideToggle,
     MatButton,
@@ -29,14 +29,14 @@ import { MatInput } from "@angular/material/input";
 })
 
 export class PostCreateComponent {
-  form: FormGroup; // ✅ Declare the form property
+  form: FormGroup;
 
   constructor(
     private postService: PostService,
     private router: Router,
-    private fb: FormBuilder // ✅ Inject FormBuilder
+    private fb: FormBuilder
   ) {
-    // ✅ Initialize the form
+
     this.form = this.fb.group({
       title: ['', Validators.required],
       slug: ['', Validators.required],
@@ -51,7 +51,7 @@ export class PostCreateComponent {
 
     const newPost: Post = {
       id: 0,
-      ...this.form.value, // ✅ Get values from the form
+      ...this.form.value,
       created_at: new Date(),
       updated_at: new Date(),
     };
@@ -60,4 +60,5 @@ export class PostCreateComponent {
       this.router.navigate(['/']).then(r => console.log(r));
     });
   }
+  
 }

@@ -1,20 +1,19 @@
-// src/app/services/post.service.ts
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post.model';
-import { Observable, BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PostService {
   private postsSubject = new BehaviorSubject<Post[]>([]);
-  posts$: Observable<Post[]> = this.postsSubject.asObservable();
-  private postsUrl = 'assets/posts.json'; // Path to the JSON file
+  posts: Observable<Post[]> = this.postsSubject.asObservable();
+  private postsUrl = 'assets/posts.json';
 
   constructor(private http: HttpClient) {
-    // Load posts from JSON file when the service is initialized
     this.loadPosts();
   }
 
@@ -32,22 +31,24 @@ export class PostService {
   }
 
   getPosts(): Observable<Post[]> {
-    return this.posts$;
+    return this.posts;
   }
 
   getPost(id: number): Observable<Post | undefined> {
-    return this.posts$.pipe(
+    return this.posts.pipe(
       map(posts => posts.find(post => post.id === id))
     );
   }
 
   addPost(post: Post): Observable<Post> {
+
     const newPost: Post = {
       ...post,
       id: Math.floor(Math.random() * 100_000), // Generate a random ID (replace with backend-generated ID later)
       created_at: new Date(),
       updated_at: new Date()
     };
+
     const currentPosts = this.postsSubject.value;
     const updatedPosts = [...currentPosts, newPost];
     this.postsSubject.next(updatedPosts);
@@ -56,7 +57,7 @@ export class PostService {
 
   updatePost(post: Post): Observable<Post> {
     const currentPosts = this.postsSubject.value;
-    const updatedPosts = currentPosts.map(p => p.id === post.id ? {...post, updated_at: new Date()} : p);
+    const updatedPosts = currentPosts.map(p => p.id === post.id ? { ...post, updated_at: new Date() } : p);
     this.postsSubject.next(updatedPosts);
     return of(post);
   }

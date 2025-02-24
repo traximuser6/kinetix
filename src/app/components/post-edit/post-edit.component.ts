@@ -30,6 +30,7 @@ import { NgIf } from "@angular/common";
   templateUrl: './post-edit.component.html',
   styleUrls: ['./post-edit.component.css']
 })
+
 export class PostEditComponent implements OnInit {
   postForm: FormGroup;
   post: Post | undefined;
@@ -82,4 +83,6 @@ export class PostEditComponent implements OnInit {
       });
     }
   }
+
+  
 }
