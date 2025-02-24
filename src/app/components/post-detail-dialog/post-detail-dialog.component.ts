@@ -51,7 +51,7 @@ export class PostDetailDialogComponent {
   protected dialogRef = inject(MatDialogRef<PostDetailDialogComponent>);
   private router = inject(Router);
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { post: Post }) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { post: Post }) { }
 
   navigateToEdit(): void {
     this.router.navigate(['/edit', this.data.post.id]).then(() => {

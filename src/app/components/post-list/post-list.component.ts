@@ -29,16 +29,15 @@ import { SlicePipe } from "@angular/common";
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
+
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
   dataSource = new MatTableDataSource<Post>(this.posts);
   displayedColumns: string[] = ['id', 'title', 'slug', 'is_published', 'description', 'actions'];
-
   private postService = inject(PostService);
   private dialog = inject(MatDialog); // Inject MatDialog
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(posts => {
@@ -57,13 +56,15 @@ export class PostListComponent implements OnInit {
   }
 
   openPostDetail(post: Post): void {
+
+    // todo : show a gentle toast message instead
     if (!post) {
       console.error('No post data available.');
       return;
     }
 
     this.dialog.open(PostDetailDialogComponent, {
-      data: {post: post},
+      data: { post: post },
       width: '600px',
       maxWidth: '90vw',
       panelClass: 'post-detail-dialog'

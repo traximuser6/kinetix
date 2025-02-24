@@ -64,6 +64,7 @@ export class PostEditComponent implements OnInit {
         error: (err) => console.error('Error fetching post:', err)
       });
     } else {
+      // show a toast message instead
       console.error('Invalid post ID.');
     }
   }
@@ -84,5 +85,5 @@ export class PostEditComponent implements OnInit {
     }
   }
 
-  
+
 }

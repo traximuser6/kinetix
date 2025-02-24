@@ -3,7 +3,7 @@ import { Post } from "../../models/post.model";
 import { PostService } from "../../services/post.service";
 import { Router, RouterLink } from "@angular/router";
 import { MatCard, MatCardContent, MatCardTitle } from "@angular/material/card";
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms"; // ✅ Import FormBuilder and Validators
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";   // Import form builders and validators
 import { MatFormField, MatLabel } from "@angular/material/form-field";
 import { MatSlideToggle } from "@angular/material/slide-toggle";
 import { MatButton } from "@angular/material/button";
@@ -28,7 +28,7 @@ import { MatInput } from "@angular/material/input";
   styleUrl: './post-create.component.css'
 })
 
-export class PostCreateComponent {
+export class PostCreateComponent  {
   form: FormGroup;
 
   constructor(
@@ -60,5 +60,5 @@ export class PostCreateComponent {
       this.router.navigate(['/']).then(r => console.log(r));
     });
   }
-  
+
 }

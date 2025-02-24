@@ -33,6 +33,7 @@ export class PostDetailComponent implements OnInit {
         error: (err) => console.error('Error fetching post:', err)
       });
     } else {
+      // todo : use a toast instead
       console.error('Invalid post ID.');
     }
   }
@@ -47,5 +48,5 @@ export class PostDetailComponent implements OnInit {
       });
     }
   }
-  
+
 }
