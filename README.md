@@ -69,7 +69,9 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 - NgRx
 - maintain the state with complex structure
 - Observable and BehaviourSubject (like pinia in vue)
+- Learn about component communication (https://v17.angular.io/guide/component-interaction)
 - The real API (Laravel or nodeJs) create one and use it with this project
+- 
 
 
 

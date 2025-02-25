@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatError, MatFormField, MatLabel } from "@angular/material/form-field";
 import { MatInput } from "@angular/material/input";
@@ -20,8 +20,8 @@ import { NgIf } from "@angular/common";
 })
 
 export class Step1Component {
+  @Input() form!: FormGroup;
   private fb = inject(FormBuilder);
-  form: FormGroup;
 
   constructor() {
     this.form = this.fb.group({

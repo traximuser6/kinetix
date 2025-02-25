@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatError, MatFormField, MatLabel } from "@angular/material/form-field";
 import { MatInput } from "@angular/material/input";
@@ -22,9 +22,8 @@ import { MatSlideToggle } from "@angular/material/slide-toggle";
 })
 
 export class Step2Component {
-
+  @Input() form!: FormGroup; // Input for the FormGroup from the parent
   private fb = inject(FormBuilder); // assignment
-  form: FormGroup;  // property declaration (remember Interfaces)
 
   constructor() {
     this.form = this.fb.group({
