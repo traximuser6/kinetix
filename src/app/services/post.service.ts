@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Post } from '../models/post.model';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
+import { generateNextPostId } from '../utils/utils';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +11,28 @@ import { map, tap } from 'rxjs/operators';
 
 export class PostService {
   private postsSubject = new BehaviorSubject<Post[]>([]);
-  posts: Observable<Post[]> = this.postsSubject.asObservable();
   private postsUrl = 'assets/posts.json';
 
+  // Public observable for subscribing to posts
+  posts: Observable<Post[]> = this.postsSubject.asObservable();
+
   constructor(private http: HttpClient) {
-    this.loadPosts();
+    this.loadPosts().subscribe(); // Load posts on service initialization
   }
 
-  private loadPosts(): void {
-    this.http.get<Post[]>(this.postsUrl).pipe(
+  private loadPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.postsUrl).pipe(
       map(posts => posts.map(post => ({
         ...post,
         created_at: new Date(post.created_at),
         updated_at: new Date(post.updated_at)
       }))),
-      tap(posts => this.postsSubject.next(posts))
-    ).subscribe({
-      error: (err) => console.error('Error loading posts from JSON:', err)
-    });
+      tap(posts => this.postsSubject.next(posts)),
+      catchError(error => {
+        console.error('Error loading posts from JSON:', error);
+        return of([]); // Return empty array on error to prevent app crash
+      })
+    );
   }
 
   getPosts(): Observable<Post[]> {
@@ -41,15 +46,15 @@ export class PostService {
   }
 
   addPost(post: Post): Observable<Post> {
+    const currentPosts = this.postsSubject.value;
     const newPost: Post = {
       ...post,
-      id: Math.floor(Math.random() * 100_000), // Generate random ID
+      id: generateNextPostId(currentPosts),
       created_at: new Date(),
       updated_at: new Date()
     };
-    const currentPosts = this.postsSubject.value;
-    const updatedPosts = [...currentPosts, newPost];
-    this.postsSubject.next(updatedPosts);
+
+    this.postsSubject.next([...currentPosts, newPost]);
     return of(newPost);
   }
 

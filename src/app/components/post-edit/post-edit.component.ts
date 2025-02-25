@@ -1,4 +1,3 @@
-// src/app/components/post-edit/post-edit.component.ts
 import { Component, inject, OnInit } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
@@ -10,7 +9,7 @@ import { MatInput } from '@angular/material/input';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { MatButton } from '@angular/material/button';
 import { NgIf } from '@angular/common';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'; // Add for toast messages
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-post-edit',
@@ -26,8 +25,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'; //
     MatSlideToggle,
     MatButton,
     NgIf,
-    MatError,
-    MatSnackBarModule
+    MatError
   ],
   templateUrl: './post-edit.component.html',
   styleUrls: ['./post-edit.component.css']
@@ -37,9 +35,9 @@ export class PostEditComponent implements OnInit {
   post: Post | undefined;
 
   private postService = inject(PostService);
-  private route = inject(ActivatedRoute);
+  private activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);
-  private snackBar = inject(MatSnackBar); // Inject MatSnackBar for toast messages
+  private toast = inject(ToastService);
 
   constructor(private fb: FormBuilder) {
     this.postForm = this.fb.group({
@@ -52,7 +50,7 @@ export class PostEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     if (id) {
       this.postService.getPost(id).subscribe({
         next: (post) => {
@@ -60,16 +58,16 @@ export class PostEditComponent implements OnInit {
           if (post) {
             this.postForm.patchValue(post);
           } else {
-            this.showToast('Post not found.');
+            this.toast.showToast('Post not found.', 'error');
           }
         },
         error: (err) => {
           console.error('Error fetching post:', err);
-          this.showToast('Error loading post. Please try again.');
+          this.toast.showToast('Error loading post. Please try again.', 'error');
         }
       });
     } else {
-      this.showToast('Invalid post ID.');
+      this.toast.showToast('Invalid post ID.', 'error');
     }
   }
 
@@ -83,30 +81,22 @@ export class PostEditComponent implements OnInit {
 
       this.postService.updatePost(updatedPost).subscribe({
         next: () => {
-          this.router.navigate(['/']).then(r => console.log('Navigation result:', r)); // Redirect to root (/)
-          this.showToast('Post updated successfully!');
+          this.router.navigate(['/']).then(r => console.log('Navigation result:', r));
+          this.toast.showToast('Post updated successfully!', 'success');
         },
         error: (err) => {
           console.error('Error updating post:', err);
-          this.showToast('Error updating post. Please try again.');
+          this.toast.showToast('Error updating post. Please try again.', 'error');
         }
       });
+    } else {
+      this.toast.showToast('Please fill all required fields.', 'warning');
     }
   }
 
   onCancel(): void {
     this.router.navigate(['/']).then(r => console.log('Navigation result:', r));
-    this.showToast('Edit canceled.');
-    // Optionally reset the form if you want to clear it
-    // this.postForm.reset();
+    this.toast.showToast('Edit canceled.', 'warning');
   }
 
-  private showToast(message: string): void {
-    this.snackBar.open(message, 'Close', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: ['snack-bar']
-    });
-  }
 }

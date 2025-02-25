@@ -75,9 +75,7 @@ mat-error {
   margin-top: 4px; /* Space above error message */
 }
 
-
 /* the other css  */
-
 
 /* Add to post-create.component.css and post-edit.component.css */
 mat-slide-toggle {
@@ -143,4 +141,52 @@ mat-slide-toggle:hover .mat-slide-toggle-thumb {
 
 mat-slide-toggle.mat-checked:hover .mat-slide-toggle-thumb {
   transform: scale(1.1); /* Maintain hover effect */
+}
+
+/* for snackbar - toast like message */
+.snack-bar {
+  background: #ffffff; /* White background for contrast */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  padding: 16px 24px; /* Larger padding for a premium feel */
+  font-size: 16px; /* Larger text for readability */
+  font-weight: 500; /* Slightly bolder text */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animations */
+  min-width: 300px; /* Minimum width for consistency */
+}
+
+.snack-bar-success {
+  border-left: 4px solid #4caf50; /* Green border for success */
+  color: #2e7d32; /* Darker green text for contrast */
+}
+
+.snack-bar-success .mat-mdc-button {
+  color: #4caf50; /* Match button color to success state */
+}
+
+.snack-bar-warning {
+  border-left: 4px solid #ffca28; /* Yellow border for warning */
+  color: #f57f17; /* Darker yellow text for contrast */
+}
+
+.snack-bar-warning .mat-mdc-button {
+  color: #ffca28; /* Match button color to warning state */
+}
+
+.snack-bar.mat-mdc-snack-bar-container {
+  transform: translateY(0); /* Ensure no initial offset */
+}
+
+.snack-bar.mat-mdc-snack-bar-container.mat-mdc-snack-bar-enter-active {
+  transform: translateY(0) scale(1); /* Smooth entrance animation */
+}
+
+.snack-bar.mat-mdc-snack-bar-container.mat-mdc-snack-bar-exit {
+  opacity: 0;
+  transform: translateY(-20px); /* Slide out upward */
+}
+
+.snack-bar.mat-mdc-snack-bar-container.mat-mdc-snack-bar-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
 }
