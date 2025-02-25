@@ -108,5 +108,95 @@
     "is_published": true,
     "created_at": "2025-02-07T21:30:00Z",
     "updated_at": "2025-02-12T18:40:00Z"
+  },
+  {
+    "id": 12,
+    "title": "Mastering Python: A Comprehensive Guide",
+    "slug": "mastering-python-guide",
+    "excerpt": "Get to grips with Python and start coding your first application.",
+    "description": "This guide introduces Python basics, including data types, control structures, and object-oriented programming. You'll build a small Python app while learning key concepts.",
+    "is_published": true,
+    "created_at": "2025-02-24T10:15:00Z",
+    "updated_at": "2025-02-25T12:00:00Z"
+  },
+  {
+    "id": 13,
+    "title": "Exploring the Internet of Things (IoT)",
+    "slug": "exploring-iot",
+    "excerpt": "How IoT is revolutionizing industries and our homes.",
+    "description": "From smart homes to industrial automation, IoT is making everything connected. This article looks at the technology behind IoT and the impact it’s having on various sectors.",
+    "is_published": true,
+    "created_at": "2025-02-21T14:45:00Z",
+    "updated_at": "2025-02-24T09:00:00Z"
+  },
+  {
+    "id": 14,
+    "title": "Building a Career in Tech: A Step-by-Step Guide",
+    "slug": "career-in-tech-guide",
+    "excerpt": "How to start and grow your career in the tech industry.",
+    "description": "This guide provides practical advice for individuals looking to break into the tech industry, covering skills, networking, and career advancement tips.",
+    "is_published": false,
+    "created_at": "2025-02-23T11:30:00Z",
+    "updated_at": "2025-02-23T11:30:00Z"
+  },
+  {
+    "id": 15,
+    "title": "The Future of Virtual Reality: Trends for 2030",
+    "slug": "future-of-vr-2030",
+    "excerpt": "Virtual reality is set to transform entertainment, education, and more.",
+    "description": "With advancements in hardware and software, virtual reality is expanding beyond gaming. This article discusses emerging trends in VR and its potential in 2030.",
+    "is_published": true,
+    "created_at": "2025-02-20T15:00:00Z",
+    "updated_at": "2025-02-24T16:20:00Z"
+  },
+  {
+    "id": 16,
+    "title": "Navigating the Future of Work: Remote, Hybrid, or In-Office?",
+    "slug": "future-of-work",
+    "excerpt": "What work environments will dominate in the coming years?",
+    "description": "With the rise of remote and hybrid work, the traditional office setting is evolving. This article examines trends in work environments and what we can expect moving forward.",
+    "is_published": true,
+    "created_at": "2025-02-15T13:50:00Z",
+    "updated_at": "2025-02-19T12:30:00Z"
+  },
+  {
+    "id": 17,
+    "title": "Understanding Blockchain Technology and Cryptocurrencies",
+    "slug": "blockchain-and-cryptocurrencies",
+    "excerpt": "A beginner's guide to blockchain and the world of cryptocurrencies.",
+    "description": "This article explains blockchain technology, how it works, and its applications, including an introduction to cryptocurrencies like Bitcoin and Ethereum.",
+    "is_published": true,
+    "created_at": "2025-02-13T16:30:00Z",
+    "updated_at": "2025-02-18T11:10:00Z"
+  },
+  {
+    "id": 18,
+    "title": "The Role of Augmented Reality in Modern Education",
+    "slug": "augmented-reality-in-education",
+    "excerpt": "How AR is enhancing learning experiences in classrooms.",
+    "description": "Augmented Reality (AR) is changing how we teach and learn. This article explores AR's role in education and how it's used to make learning more interactive and engaging.",
+    "is_published": false,
+    "created_at": "2025-02-24T09:30:00Z",
+    "updated_at": "2025-02-24T09:30:00Z"
+  },
+  {
+    "id": 19,
+    "title": "Navigating Ethical Dilemmas in Technology",
+    "slug": "ethical-dilemmas-in-tech",
+    "excerpt": "Understanding the moral implications of emerging tech.",
+    "description": "As technology advances, ethical questions arise. This article addresses common ethical dilemmas in technology, from data privacy to AI decision-making.",
+    "is_published": true,
+    "created_at": "2025-02-18T17:40:00Z",
+    "updated_at": "2025-02-22T13:10:00Z"
+  },
+  {
+    "id": 20,
+    "title": "The Evolution of Cloud Computing: What's Next?",
+    "slug": "cloud-computing-evolution",
+    "excerpt": "Cloud computing continues to evolve. What can we expect next?",
+    "description": "Cloud computing is transforming how businesses operate. This article takes a deep dive into the latest trends in cloud technologies and what the future holds for cloud services.",
+    "is_published": true,
+    "created_at": "2025-02-10T12:25:00Z",
+    "updated_at": "2025-02-12T14:00:00Z"
   }
 ]
