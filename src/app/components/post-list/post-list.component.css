@@ -1,3 +1,8 @@
+
+mat-card-content {
+  position: relative;
+}
+
 /* multi-form post submission styling */
 .multi-step-create-button {
   display: block;
@@ -33,7 +38,7 @@
 }
 
 .add-button {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   right: 20px;
   z-index: 1000; /* Ensure it stays on top */

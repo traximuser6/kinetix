@@ -7,6 +7,7 @@
 
   <!-- Card content with a container for scrolling -->
   <mat-card-content>
+
     <!-- Create button - the Plus Button - not being displayed on the front-end but on the right bottom of the screen visible table -->
     <button mat-fab color="primary" routerLink="/create" class="add-button">
       <mat-icon>add</mat-icon>
@@ -17,31 +18,31 @@
       <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- todo : reduce the width of the id -->
         <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-          <mat-cell *matCellDef="let post"> {{ post.id }} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
+          <mat-cell *matCellDef="let post"> {{ post.id }}</mat-cell>
         </ng-container>
 
         <!-- title -->
         <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-          <mat-cell *matCellDef="let post"> {{ post.title }} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Title</mat-header-cell>
+          <mat-cell *matCellDef="let post"> {{ post.title }}</mat-cell>
         </ng-container>
 
         <!-- slug -->
         <ng-container matColumnDef="slug">
-          <mat-header-cell *matHeaderCellDef> Slug </mat-header-cell>
-          <mat-cell *matCellDef="let post"> {{ post.slug }} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Slug</mat-header-cell>
+          <mat-cell *matCellDef="let post"> {{ post.slug }}</mat-cell>
         </ng-container>
 
         <!-- excerpt -->
         <ng-container matColumnDef="excerpt">
-          <mat-header-cell *matHeaderCellDef> Excerpt </mat-header-cell>
-          <mat-cell *matCellDef="let post"> {{ post.excerpt }} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Excerpt</mat-header-cell>
+          <mat-cell *matCellDef="let post"> {{ post.excerpt }}</mat-cell>
         </ng-container>
 
         <!-- description -->
         <ng-container matColumnDef="description">
-          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
           <mat-cell *matCellDef="let post">
             <span matTooltip="{{ post.description }}" matTooltipClass="description-tooltip">
               {{ post.description.length > 20 ? (post.description | slice:0:20) + '...' : post.description }}
@@ -51,9 +52,10 @@
 
         <!-- is_published -->
         <ng-container matColumnDef="is_published">
-          <mat-header-cell *matHeaderCellDef> Published </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Published</mat-header-cell>
           <mat-cell *matCellDef="let post">
-            <span class="published-capsule" [class.published]="post.is_published" [class.unpublished]="!post.is_published">
+            <span class="published-capsule" [class.published]="post.is_published"
+                  [class.unpublished]="!post.is_published">
               {{ post.is_published ? 'Yes' : 'No' }}
             </span>
           </mat-cell>
@@ -61,7 +63,7 @@
 
         <!-- action buttons -->
         <ng-container matColumnDef="actions">
-          <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
           <mat-cell *matCellDef="let post">
             <!-- Eye - Show button (now opens modal) -->
             <button mat-icon-button color="primary" (click)="openPostDetail(post)">
