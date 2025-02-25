@@ -25,8 +25,8 @@ export class Step1Component {
 
   constructor() {
     this.form = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(3)]],
-      slug: ['', [Validators.required, Validators.pattern('/^[a-z0-9-]+$/')]],
+      title: ['', Validators.required],
+      slug: ['', Validators.required],
     })
   }
 

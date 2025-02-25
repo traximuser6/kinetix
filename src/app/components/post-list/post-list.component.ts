@@ -54,7 +54,6 @@ export class PostListComponent implements OnInit {
   }
 
   openPostDetail(post: Post): void {
-
     // todo : show a gentle toast message instead
     if (!post) {
       console.error('No post data available.');

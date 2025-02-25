@@ -3,7 +3,6 @@ import { Post } from '../models/post.model';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
-import { generateRandomNumber } from "../utils/utils";
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +26,6 @@ export class PostService {
       }))),
       tap(posts => this.postsSubject.next(posts))
     ).subscribe({
-      // todo : add a gentle warning toastr showing the given message
       error: (err) => console.error('Error loading posts from JSON:', err)
     });
   }
@@ -43,14 +41,12 @@ export class PostService {
   }
 
   addPost(post: Post): Observable<Post> {
-
     const newPost: Post = {
       ...post,
-      id: generateRandomNumber(),
+      id: Math.floor(Math.random() * 100_000), // Generate random ID
       created_at: new Date(),
       updated_at: new Date()
     };
-
     const currentPosts = this.postsSubject.value;
     const updatedPosts = [...currentPosts, newPost];
     this.postsSubject.next(updatedPosts);
@@ -70,5 +66,4 @@ export class PostService {
     this.postsSubject.next(updatedPosts);
     return of(updatedPosts.length < currentPosts.length);
   }
-
 }

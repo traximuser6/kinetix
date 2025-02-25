@@ -36,7 +36,6 @@ export class PostCreateComponent {
     private router: Router,
     private fb: FormBuilder
   ) {
-
     this.form = this.fb.group({
       title: ['', Validators.required],
       slug: ['', Validators.required],
