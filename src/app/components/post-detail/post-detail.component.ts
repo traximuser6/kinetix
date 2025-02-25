@@ -1,21 +1,28 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButton } from "@angular/material/button";
 import { PostDetailDialogComponent } from "../post-detail-dialog/post-detail-dialog.component";
+import { MatCard, MatCardActions, MatCardContent, MatCardSubtitle, MatCardTitle } from "@angular/material/card";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-post-detail',
   standalone: true,
   imports: [
     MatDialogModule,
-    MatButton
+    MatButton,
+    MatCard,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatCardContent,
+    MatCardActions,
+    RouterLink,
+    DatePipe
   ],
-  template: `
-    <button mat-raised-button color="primary" (click)="openDialog()">View Post Details</button>
-  `,
+  templateUrl : './post-detail.component.html',
   styleUrls: ['./post-detail.component.css']
 })
 
