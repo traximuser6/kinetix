@@ -1,10 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { Post } from '../../models/post.model';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -23,8 +22,7 @@ import { SlicePipe } from "@angular/common";
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    SlicePipe,
-    // Add MatDialogModule for the dialog
+    SlicePipe
   ],
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
@@ -33,9 +31,9 @@ import { SlicePipe } from "@angular/common";
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
   dataSource = new MatTableDataSource<Post>(this.posts);
-  displayedColumns: string[] = ['id', 'title', 'slug', 'is_published', 'description', 'actions'];
+  displayedColumns: string[] = ['id', 'title', 'slug', 'excerpt', 'description', 'is_published', 'actions'];
   private postService = inject(PostService);
-  private dialog = inject(MatDialog); // Inject MatDialog
+  private dialog = inject(MatDialog);
 
   constructor() { }
 
