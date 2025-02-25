@@ -1,3 +1,21 @@
+/* multi-form post submission styling */
+.multi-step-create-button {
+  display: block;
+  margin: 16px auto 24px; /* Center the button below the title with spacing */
+  min-width: 200px; /* Wider button for prominence */
+  padding: 12px 24px; /* Larger padding for a bold look */
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth animations */
+}
+
+.multi-step-create-button:hover {
+  transform: scale(1.05); /* Slight scale on hover for interactivity */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow on hover */
+}
+
+/* Existing CSS remains the same (e.g., .post-list-card, .add-button, etc.) */
+
 .post-list-card {
   max-width: 70%; /* Wider card for the table */
   min-width: 70%;
