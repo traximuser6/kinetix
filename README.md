@@ -65,9 +65,8 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
   `C:\ng-local-projects\first-angular-project\README.md`).
 
 
-
-
 - Practice with rxjs and multi select form
+- NgRx
 - maintain the state with complex structure
 - Observable and BehaviourSubject (like pinia in vue)
 - The real API (Laravel or nodeJs) create one and use it with this project
