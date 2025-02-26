@@ -31,7 +31,7 @@ import { SlicePipe } from "@angular/common";
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
   dataSource = new MatTableDataSource<Post>(this.posts);
-  displayedColumns: string[] = ['id', 'title', 'slug', 'excerpt', 'description', 'is_published', 'actions'];
+  displayedColumns: string[] = ['id', 'title', 'slug', 'excerpt', 'description', 'is_published', 'created_at' ,'actions'];
   private postService = inject(PostService);
   private dialog = inject(MatDialog);
 
