@@ -265,7 +265,7 @@
     "slug": "ai-in-healthcare",
     "excerpt": "How AI is improving patient care and diagnostics.",
     "description": "AI is transforming the healthcare sector. This article discusses its applications in diagnosing diseases, personalizing treatments, and improving patient outcomes.",
-    "is_published": true,
+    "is_published": false,
     "created_at": "2025-02-14T09:00:00Z",
     "updated_at": "2025-02-18T11:50:00Z"
   },
@@ -345,7 +345,7 @@
     "slug": "blockchain-beyond-crypto",
     "excerpt": "Exploring how blockchain can revolutionize industries beyond finance.",
     "description": "Blockchain technology has applications beyond cryptocurrency. This article discusses how blockchain is transforming supply chains, healthcare, and voting systems.",
-    "is_published": true,
+    "is_published": false,
     "created_at": "2025-02-19T12:00:00Z",
     "updated_at": "2025-02-19T12:30:00Z"
   },
@@ -405,7 +405,7 @@
     "slug": "technology-in-education",
     "excerpt": "How tech is transforming teaching and learning.",
     "description": "From virtual classrooms to AI tutors, technology is revolutionizing education. This article explores the latest innovations shaping the future of learning.",
-    "is_published": true,
+    "is_published": false,
     "created_at": "2025-02-19T18:00:00Z",
     "updated_at": "2025-02-19T18:30:00Z"
   },
@@ -455,7 +455,7 @@
     "slug": "augmented-reality-in-retail",
     "excerpt": "Exploring how AR is transforming the shopping experience.",
     "description": "Augmented reality (AR) is revolutionizing the retail sector. This article examines how AR is improving customer experiences and changing the future of shopping.",
-    "is_published": true,
+    "is_published": false,
     "created_at": "2025-02-19T23:00:00Z",
     "updated_at": "2025-02-19T23:30:00Z"
   },
@@ -475,7 +475,7 @@
     "slug": "future-of-vr-entertainment",
     "excerpt": "How VR is changing the entertainment landscape.",
     "description": "Virtual reality is transforming entertainment. This article explores how VR is shaping the future of gaming, movies, and interactive experiences.",
-    "is_published": true,
+    "is_published": false,
     "created_at": "2025-02-20T01:00:00Z",
     "updated_at": "2025-02-20T01:30:00Z"
   },

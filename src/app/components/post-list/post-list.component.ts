@@ -39,7 +39,7 @@ export class PostListComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe(posts => {
-      this.posts = posts;
+      this.posts = posts.reverse();
       this.dataSource.data = this.posts;
     });
   }
