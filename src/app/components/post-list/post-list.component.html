@@ -64,7 +64,7 @@
         <!-- created at -->
         <ng-container matColumnDef="created_at">
           <mat-header-cell *matHeaderCellDef> Created_at </mat-header-cell>
-          <mat-cell *matCellDef="let post"> {{ post.created_at }}</mat-cell>
+          <mat-cell *matCellDef="let post"> {{ post.created_at | date }}</mat-cell>
         </ng-container>
 
         <!-- action buttons -->
