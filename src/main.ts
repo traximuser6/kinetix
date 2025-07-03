@@ -6,13 +6,21 @@ import { routes } from './app/app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { postsReducer } from './app/store/posts.reducer';
+import { PostsEffects } from './app/store/posts.effects';
 import { ReactiveFormsModule } from '@angular/forms'; // Optional, for forms
 import { MatSnackBarModule } from '@angular/material/snack-bar'; // Optional, for toast messages
 import { MatDialogModule } from '@angular/material/dialog'; // Optional, for modals
 import { MatStepperModule } from '@angular/material/stepper'; // Optional, for multi-step forms
 
 bootstrapApplication(AppComponent, {
-  providers: [
+providers: [
+    provideStore({ posts: postsReducer }),
+    provideEffects([PostsEffects]),
+    provideStoreDevtools({ maxAge: 25 }),
     provideRouter(routes, withComponentInputBinding(), withEnabledBlockingInitialNavigation()), // Enable blocking navigation for better initial load
     provideAnimations(), // Ensure Material animations work
     provideHttpClient(withInterceptors([])), // Add HTTP interceptors for custom headers, logging, etc.
