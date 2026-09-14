@@ -1,134 +1,237 @@
-# FirstAngularApp
+# Kinetix
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
+**Kinetix** is an Angular 17 blog management system built as a learning and practice project.
 
-## Project Description
+The project currently focuses on building a modern Angular frontend for managing blog posts. It includes CRUD functionality, Angular Material UI, standalone components, reactive forms, RxJS, NgRx state management, and component communication.
 
-**FirstAngularApp** is a learning and demonstration project built with Angular 17, leveraging its standalone components
-feature to create a clean, modern web application. The project implements a complete CRUD (Create, Read, Update, Delete)
-system for managing blog posts, with a model (`Post`) that includes fields such as `id`, `title`, `slug`, `excerpt`,
-`description`, `is_published`, `created_at`, and `updated_at`.
+> **Current status:** Frontend-only. The application does not have a real backend API yet. A Laravel or Node.js API will be developed and integrated in a future phase.
 
-The user interface is designed using Angular Material, providing a polished and responsive design with centered cards,
-stacked input fields for forms, and a table-based list view for posts. The application supports navigation between a
-post list, post details, create/edit forms, and deletion actions, all managed through Angular’s routing system. As of
-February 21, 2025, the project uses standalone components, eliminating the need for a traditional `NgModule`, and
-focuses on a modern, user-friendly experience.
+## Features
+
+- Blog post CRUD interface
+- View posts in a table/list
+- View post details
+- Create new posts
+- Edit existing posts
+- Delete posts
+- Reactive forms with validation
+- Multi-select form practice
+- Angular Material UI
+- Standalone Angular components
+- Angular routing
+- RxJS Observables and `BehaviorSubject`
+- NgRx state management
+- Complex state structure practice
+- Component-to-component communication
+- Frontend API/service architecture ready for future backend integration
+
+## Tech Stack
+
+- **Angular:** 17.3.12
+- **TypeScript**
+- **Angular Material**
+- **RxJS**
+- **NgRx**
+- **Reactive Forms**
+- **SCSS/CSS**
+- **Git & GitHub**
+- **Netlify** — deployment
+
+## Project Structure
+
+The application is organized around common Angular concepts and separates responsibilities between components, services, state management, models, and routing.
+
+The main blog entity is the `Post` model, which currently contains fields such as:
+
+```
+id
+title
+slug
+excerpt
+description
+is_published
+created_at
+updated_at
+```
+
+## Current Architecture
+
+At the moment, the application works without a backend.
+
+The frontend uses local/mock data and Angular services/state management to simulate the blog system.
+
+The planned architecture is:
+
+```
+Angular Frontend
+       ↓
+   NgRx Store
+       ↓
+ Angular Services
+       ↓
+    HTTP Client
+       ↓
+ Laravel / Node.js API
+       ↓
+    Database
+```
+
+The backend layer will be added later so the application can work with real persistent data.
+
+## Learning Goals
+
+This project is being developed alongside learning and practicing:
+
+- Angular standalone components
+- Reactive Forms
+- Form validation
+- RxJS
+- `Observable`
+- `BehaviorSubject`
+- NgRx
+- Complex state management
+- Component communication
+- Angular routing
+- HTTP services
+- REST APIs
+- Authentication and authorization
+- Frontend/backend integration
+- Building a real-world CRUD application
+
+## TODO
+
+### Angular & Frontend
+
+- [ ] Improve overall UI/UX
+- [ ] Add loading states
+- [ ] Add better error handling
+- [ ] Add confirmation dialogs for destructive actions
+- [ ] Improve form validation and error messages
+- [ ] Add pagination
+- [ ] Add search/filter functionality
+- [ ] Add sorting
+- [ ] Improve responsive design
+- [ ] Add reusable UI components
+
+### RxJS
+
+- [ ] Practice advanced RxJS operators
+- [ ] Improve Observable composition
+- [ ] Practice `switchMap`, `mergeMap`, `concatMap`, and `exhaustMap`
+- [ ] Practice error handling with RxJS
+- [ ] Better understand `Subject` vs `BehaviorSubject`
+- [ ] Practice subscription cleanup and lifecycle management
+
+### NgRx
+
+- [ ] Organize actions, reducers, effects, selectors, and models
+- [ ] Practice NgRx Effects with HTTP requests
+- [ ] Improve complex state structure
+- [ ] Add loading/error/success state handling
+- [ ] Create reusable selectors
+- [ ] Practice entity-style state management
+
+### Backend API
+
+- [ ] Build a real REST API
+- [ ] Choose backend: Laravel or Node.js
+- [ ] Create `Post` API endpoints
+- [ ] Connect Angular to the real API
+- [ ] Add database persistence
+- [ ] Add server-side validation
+- [ ] Add pagination and filtering
+- [ ] Handle API errors properly
+- [ ] Add authentication
+- [ ] Add authorization
+
+### Deployment
+
+- [x] Deploy frontend to Netlify
+- [ ] Connect frontend to production API
+- [ ] Configure environment variables
+- [ ] Configure production API URL
+- [ ] Configure CORS
+- [ ] Deploy backend
+- [ ] Connect production database
 
 ## Development Server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you
-change any of the source files.
+Install dependencies:
 
-## Code Scaffolding
+```
+npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use
-`ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run the development server:
+
+```
+ng serve
+```
+
+Then open:
+
+```
+http://localhost:4200/
+```
+
+The application automatically reloads when source files are changed.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Create a production build:
 
-## Running Unit Tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running End-to-End Tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a
-package that implements end-to-end testing capabilities.
-
-## Further Help
-
-To get more help on the Angular CLI, use `ng help` or go check out
-the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-### Changes and Additions
-
-- **Project Description:** I added a new section titled "Project Description" that describes the purpose and features of
-  `FirstAngularApp`, including:
-    - The use of Angular 17 with standalone components.
-    - The CRUD functionality for the `Post` model.
-    - The UI design using Angular Material, including centered cards, stacked inputs, and a table-based list.
-    - The current date (February 21, 2025) to provide context.
-- **Preserved Existing Markdown:** I maintained the original structure, headings, and content (e.g., Development Server,
-  Code Scaffolding, Build, etc.) without altering their formatting or functionality.
-- **Formatting:** Used Markdown headers (`##`) for the new section to maintain consistency with the existing structure.
-
-### Notes
-
-- If you want to add more technical details (e.g., specific dependencies, setup instructions, or screenshots), let me
-  know, and I can expand the README further.
-- If you’d like a visual representation of the UI (e.g., an image for the README), please confirm, and I can assist with
-  generating one (following the guidelines).
-- You can save this updated content in your `README.md` file at the root of your project (
-  `C:\ng-local-projects\first-angular-project\README.md`).
-
-
-- Practice with rxjs and multi select form
-- NgRx
-- maintain the state with complex structure
-- Observable and BehaviourSubject (like pinia in vue)
-- Learn about component communication (https://v17.angular.io/guide/component-interaction)
-- The real API (Laravel or nodeJs) create one and use it with this project
-- 
-
-
-
-
-
-
-
-
-### Reset git changes
-
-To **reset all Git changes**, including:
-
-* Modified (unstaged + staged) files
-* Untracked files and folders
-* Ignored files (optional)
-
-You can use the following **safe but complete** set of commands:
-
----
-
-### ✅ **Full Git Reset to Clean Working Directory**
-
-```bash
-# 1. Reset all tracked files (removes staged and unstaged changes)
-git reset --hard
-
-# 2. Remove all untracked files
-git clean -fd
-
-# 3. (Optional) Also remove ignored files
-git clean -xfd
+```
+ng build
 ```
 
----
+Build artifacts will be generated in the `dist/` directory.
 
-### 🔍 What Each Command Does
+## Testing
 
-| Command            | Description                                                                      |
-| ------------------ | -------------------------------------------------------------------------------- |
-| `git reset --hard` | Resets all tracked files to `HEAD` – clears both staged and unstaged changes.    |
-| `git clean -fd`    | Deletes untracked **files (`-f`)** and **directories (`-d`)**.                   |
-| `git clean -xfd`   | Deletes **everything untracked**, including ignored files (`-x`). Use carefully. |
+Run unit tests:
 
----
-
-### ⚠️ Caution
-
-* These commands **cannot be undone easily**.
-* Make sure you don’t have uncommitted work you care about.
-* You can run `git status` first to review what will be lost.
-
----
-
-### 🧪 Preview (Dry Run)
-
-If you're unsure, run this first:
-
-```bash
-git clean -fdn   # Preview what will be deleted
 ```
+ng test
+```
+
+End-to-end testing can be added later using a testing framework such as Playwright or Cypress.
+
+## Deployment
+
+The current frontend is deployed on **Netlify**.
+
+The application will initially remain frontend-only. Once the backend API is developed, the production frontend will be connected to the deployed API.
+
+## Roadmap
+
+The project will evolve in the following stages:
+
+```
+Phase 1
+Angular Fundamentals
+      ↓
+Phase 2
+RxJS + Reactive Forms
+      ↓
+Phase 3
+NgRx State Management
+      ↓
+Phase 4
+Real REST API
+      ↓
+Phase 5
+Authentication
+      ↓
+Phase 6
+Production Deployment
+```
+
+## Resources
+
+- [Angular Documentation](https://angular.io/)
+- [Angular Component Interaction](https://v17.angular.io/guide/component-interaction)
+- [NgRx Documentation](https://ngrx.io/)
+- [RxJS Documentation](https://rxjs.dev/)
+- [Angular Material](https://material.angular.io/)
+
+  **Kinetix** is primarily a learning project, but the goal is to gradually turn it into a complete real-world blog management application with an Angular frontend and a production-ready backend API.
