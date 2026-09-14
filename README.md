@@ -132,5 +132,3 @@ If you're unsure, run this first:
 ```bash
 git clean -fdn   # Preview what will be deleted
 ```
-
-Let me know if you're using a specific GUI (like VS Code) or Git inside Docker or CI, and I can tailor it.
