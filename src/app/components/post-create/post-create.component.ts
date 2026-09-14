@@ -30,8 +30,11 @@ import { MatInput } from '@angular/material/input';
 export class PostCreateComponent {
   form: FormGroup;
 
-  constructor(private postService: PostService, private router: Router, private fb: FormBuilder) {
-    this.form = this.fb.group({
+  constructor(private postService: PostService, private router: Router, private formBuilder: FormBuilder) {
+
+    // passing defualt values to the form - as form group
+
+    this.form = this.formBuilder.group({
       title: ['', Validators.required],
       slug: ['', Validators.required],
       excerpt: ['', Validators.required],
