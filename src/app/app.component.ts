@@ -6,20 +6,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, MatToolbarModule],
-  template: `
-    <mat-toolbar color="primary">
-      <!-- hurrahhhhhhhh, tailwind is working..... -->
-      <span class=" bg-slate-700">{{ title }}</span>  
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-  `,
-  styles: [
-    `
-      mat-toolbar {
-        margin-bottom: 20px;
-      }
-    `,
-  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'first-angular-app';

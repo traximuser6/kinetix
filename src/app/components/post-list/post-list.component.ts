@@ -9,12 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { PostDetailDialogComponent } from '../post-detail-dialog/post-detail-dialog.component';
-import { DatePipe, SlicePipe } from '@angular/common';
+import { CommonModule, DatePipe, SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-list',
   standalone: true,
   imports: [
+    CommonModule,
     RouterLink,
     MatCardModule,
     MatTableModule,
