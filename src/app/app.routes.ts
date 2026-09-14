@@ -9,15 +9,14 @@ import { MultiStepPostFormComponent } from "./components/multi-step-form/multi-s
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', canActivate: [AuthGuard], children: [
-  { path: '', component: PostListComponent },
-  { path: 'post/:id', component: PostDetailComponent },
-  { path: 'create', component: PostCreateComponent },
-  { path: 'edit/:id', component: PostEditComponent },
-  { path: 'multi-step-create', component: MultiStepPostFormComponent },
+  {
+    path: '', canActivate: [AuthGuard], children: [
+      { path: '', component: PostListComponent },
+      { path: 'post/:id', component: PostDetailComponent },
+      { path: 'create', component: PostCreateComponent },
+      { path: 'edit/:id', component: PostEditComponent },
+      { path: 'multi-step-create', component: MultiStepPostFormComponent },
       { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
   }
-  ]
-};
 ];
