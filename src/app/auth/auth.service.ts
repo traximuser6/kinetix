@@ -12,7 +12,6 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    // Fake authentication flow. Replace with real API call.
     if (username === 'admin' && password === 'password') {
       localStorage.setItem('token', 'fake-jwt-token');
       this.authenticated$.next(true);
