@@ -8,8 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { PostDetailDialogComponent } from "../post-detail-dialog/post-detail-dialog.component";
-import { DatePipe, SlicePipe } from "@angular/common";
+import { PostDetailDialogComponent } from '../post-detail-dialog/post-detail-dialog.component';
+import { DatePipe, SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-list',
@@ -22,24 +22,32 @@ import { DatePipe, SlicePipe } from "@angular/common";
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    SlicePipe, DatePipe
-
+    SlicePipe,
+    DatePipe,
   ],
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  styleUrls: ['./post-list.component.css'],
 })
-
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
   dataSource = new MatTableDataSource<Post>(this.posts);
-  displayedColumns: string[] = ['id', 'title', 'slug', 'excerpt', 'description', 'is_published', 'created_at' ,'actions'];
+  displayedColumns: string[] = [
+    'id',
+    'title',
+    'slug',
+    'excerpt',
+    'description',
+    'is_published',
+    'created_at',
+    'actions',
+  ];
   private postService = inject(PostService);
   private dialog = inject(MatDialog);
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe(posts => {
+    this.postService.getPosts().subscribe((posts) => {
       this.posts = posts.reverse();
       this.dataSource.data = this.posts;
     });
@@ -47,7 +55,7 @@ export class PostListComponent implements OnInit {
 
   deletePost(id: number): void {
     this.postService.deletePost(id).subscribe(() => {
-      this.postService.getPosts().subscribe(posts => {
+      this.postService.getPosts().subscribe((posts) => {
         this.posts = posts;
         this.dataSource.data = this.posts;
       });
@@ -65,7 +73,7 @@ export class PostListComponent implements OnInit {
       data: { post: post },
       width: '600px',
       maxWidth: '90vw',
-      panelClass: 'post-detail-dialog'
+      panelClass: 'post-detail-dialog',
     });
   }
 }

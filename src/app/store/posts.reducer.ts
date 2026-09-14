@@ -19,20 +19,26 @@ const postsReducerInternal = createReducer(
   on(PostsActions.loadPostsSuccess, (state, { posts }) => ({ ...state, posts })),
   on(PostsActions.loadPostsFailure, (state, { error }) => ({ ...state, error })),
 
-  on(PostsActions.addPostSuccess, (state, { post }) => ({ ...state, posts: [...state.posts, post] })),
+  on(PostsActions.addPostSuccess, (state, { post }) => ({
+    ...state,
+    posts: [...state.posts, post],
+  })),
+
   on(PostsActions.addPostFailure, (state, { error }) => ({ ...state, error })),
 
   on(PostsActions.updatePostSuccess, (state, { post }) => ({
     ...state,
-    posts: state.posts.map(p => (p.id === post.id ? post : p)),
+    posts: state.posts.map((p) => (p.id === post.id ? post : p)),
   })),
+
   on(PostsActions.updatePostFailure, (state, { error }) => ({ ...state, error })),
 
   on(PostsActions.deletePostSuccess, (state, { id }) => ({
     ...state,
-    posts: state.posts.filter(p => p.id !== id),
+    posts: state.posts.filter((p) => p.id !== id),
   })),
-  on(PostsActions.deletePostFailure, (state, { error }) => ({ ...state, error }))
+  
+  on(PostsActions.deletePostFailure, (state, { error }) => ({ ...state, error })),
 );
 
 export function postsReducer(state: State | undefined, action: Action) {

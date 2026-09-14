@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Post } from "../../models/post.model";
-import { PostService } from "../../services/post.service";
-import { Router, RouterLink } from "@angular/router";
-import { MatCard, MatCardContent, MatCardTitle } from "@angular/material/card";
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms"; // Import form builders and validators
-import { MatFormField, MatLabel } from "@angular/material/form-field";
-import { MatSlideToggle } from "@angular/material/slide-toggle";
-import { MatButton } from "@angular/material/button";
-import { MatInput } from "@angular/material/input";
+import { Post } from '../../models/post.model';
+import { PostService } from '../../services/post.service';
+import { Router, RouterLink } from '@angular/router';
+import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'; // Import form builders and validators
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatButton } from '@angular/material/button';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-post-create',
@@ -22,20 +22,15 @@ import { MatInput } from "@angular/material/input";
     MatButton,
     MatInput,
     RouterLink,
-    MatLabel
+    MatLabel,
   ],
   templateUrl: './post-create.component.html',
-  styleUrl: './post-create.component.css'
+  styleUrl: './post-create.component.css',
 })
-
 export class PostCreateComponent {
   form: FormGroup;
 
-  constructor(
-    private postService: PostService,
-    private router: Router,
-    private fb: FormBuilder
-  ) {
+  constructor(private postService: PostService, private router: Router, private fb: FormBuilder) {
     this.form = this.fb.group({
       title: ['', Validators.required],
       slug: ['', Validators.required],
@@ -56,8 +51,7 @@ export class PostCreateComponent {
     };
 
     this.postService.addPost(newPost).subscribe(() => {
-      this.router.navigate(['/']).then(r => console.log(r));
+      this.router.navigate(['/']).then((r) => console.log(r));
     });
   }
-
 }

@@ -25,10 +25,10 @@ import { ToastService } from '../../services/toast.service';
     MatSlideToggle,
     MatButton,
     NgIf,
-    MatError
+    MatError,
   ],
   templateUrl: './post-edit.component.html',
-  styleUrls: ['./post-edit.component.css']
+  styleUrls: ['./post-edit.component.css'],
 })
 export class PostEditComponent implements OnInit {
   postForm: FormGroup;
@@ -45,7 +45,7 @@ export class PostEditComponent implements OnInit {
       slug: ['', [Validators.required, Validators.pattern(/^[a-z0-9-]+$/)]],
       excerpt: ['', Validators.required],
       description: ['', Validators.required],
-      is_published: [false]
+      is_published: [false],
     });
   }
 
@@ -64,7 +64,7 @@ export class PostEditComponent implements OnInit {
         error: (err) => {
           console.error('Error fetching post:', err);
           this.toast.showToast('Error loading post. Please try again.', 'error');
-        }
+        },
       });
     } else {
       this.toast.showToast('Invalid post ID.', 'error');
@@ -76,18 +76,18 @@ export class PostEditComponent implements OnInit {
       const updatedPost: Post = {
         ...this.post,
         ...this.postForm.value,
-        updated_at: new Date()
+        updated_at: new Date(),
       };
 
       this.postService.updatePost(updatedPost).subscribe({
         next: () => {
-          this.router.navigate(['/']).then(r => console.log('Navigation result:', r));
+          this.router.navigate(['/']).then((r) => console.log('Navigation result:', r));
           this.toast.showToast('Post updated successfully!', 'success');
         },
         error: (err) => {
           console.error('Error updating post:', err);
           this.toast.showToast('Error updating post. Please try again.', 'error');
-        }
+        },
       });
     } else {
       this.toast.showToast('Please fill all required fields.', 'warning');
@@ -95,8 +95,7 @@ export class PostEditComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.router.navigate(['/']).then(r => console.log('Navigation result:', r));
+    this.router.navigate(['/']).then((r) => console.log('Navigation result:', r));
     this.toast.showToast('Edit canceled.', 'warning');
   }
-
 }

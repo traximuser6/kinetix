@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStep, MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
-import { Step1Component } from "../multi-step-post-form/step1/step1.component";
-import { Step2Component } from "../multi-step-post-form/step2/step2.component";
+import { Step1Component } from '../multi-step-post-form/step1/step1.component';
+import { Step2Component } from '../multi-step-post-form/step2/step2.component';
 
 @Component({
   selector: 'app-multi-step-post-form',
@@ -22,12 +22,11 @@ import { Step2Component } from "../multi-step-post-form/step2/step2.component";
     MatStep,
     MatStepper,
     Step1Component,
-    Step2Component
+    Step2Component,
   ],
   templateUrl: './multi-step-form.component.html',
-  styleUrls: ['./multi-step-form.component.css']
+  styleUrls: ['./multi-step-form.component.css'],
 })
-
 export class MultiStepPostFormComponent implements OnInit {
   private fb = inject(FormBuilder);
   private postService = inject(PostService);
@@ -36,13 +35,13 @@ export class MultiStepPostFormComponent implements OnInit {
   masterForm: FormGroup = this.fb.group({
     step1: this.fb.group({
       title: '',
-      slug: ''
+      slug: '',
     }),
     step2: this.fb.group({
       excerpt: '',
       description: '',
-      is_published: [false]
-    })
+      is_published: [false],
+    }),
   });
 
   activeStepIndex = 0;
@@ -82,14 +81,14 @@ export class MultiStepPostFormComponent implements OnInit {
         description: this.step2Form.get('description')?.value,
         is_published: this.step2Form.get('is_published')?.value,
         created_at: new Date(),
-        updated_at: new Date()
+        updated_at: new Date(),
       };
 
       this.postService.addPost(post).subscribe({
         next: () => {
-          this.router.navigate(['/']).then(r => console.log('Navigation result:', r));
+          this.router.navigate(['/']).then((r) => console.log('Navigation result:', r));
         },
-        error: (err) => console.error('Error creating post:', err)
+        error: (err) => console.error('Error creating post:', err),
       });
     }
   }

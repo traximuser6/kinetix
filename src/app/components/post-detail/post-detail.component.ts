@@ -3,10 +3,16 @@ import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatButton } from "@angular/material/button";
-import { PostDetailDialogComponent } from "../post-detail-dialog/post-detail-dialog.component";
-import { MatCard, MatCardActions, MatCardContent, MatCardSubtitle, MatCardTitle } from "@angular/material/card";
-import { DatePipe } from "@angular/common";
+import { MatButton } from '@angular/material/button';
+import { PostDetailDialogComponent } from '../post-detail-dialog/post-detail-dialog.component';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+  MatCardSubtitle,
+  MatCardTitle,
+} from '@angular/material/card';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-detail',
@@ -20,12 +26,11 @@ import { DatePipe } from "@angular/common";
     MatCardContent,
     MatCardActions,
     RouterLink,
-    DatePipe
+    DatePipe,
   ],
-  templateUrl : './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css']
+  templateUrl: './post-detail.component.html',
+  styleUrls: ['./post-detail.component.css'],
 })
-
 export class PostDetailComponent implements OnInit {
   post: Post | undefined;
   private postService = inject(PostService);
@@ -36,8 +41,8 @@ export class PostDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
       this.postService.getPost(id).subscribe({
-        next: (post) => this.post = post,
-        error: (err) => console.error('Error fetching post:', err)
+        next: (post) => (this.post = post),
+        error: (err) => console.error('Error fetching post:', err),
       });
     } else {
       // todo : use a toast instead
@@ -51,9 +56,8 @@ export class PostDetailComponent implements OnInit {
         data: { post: this.post },
         width: '600px',
         maxWidth: '90vw',
-        panelClass: 'post-detail-dialog'
+        panelClass: 'post-detail-dialog',
       });
     }
   }
-
 }

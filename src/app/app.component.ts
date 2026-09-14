@@ -12,13 +12,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,
-  styles: [`
-    mat-toolbar {
-      margin-bottom: 20px;
-    }
-  `]
+  styles: [
+    `
+      mat-toolbar {
+        margin-bottom: 20px;
+      }
+    `,
+  ],
 })
-
 export class AppComponent {
   title = 'first-angular-app';
 }
