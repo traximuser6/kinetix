@@ -8,7 +8,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [RouterOutlet, MatToolbarModule],
   template: `
     <mat-toolbar color="primary">
-      <span>{{ title }}</span>
+      <!-- hurrahhhhhhhh, tailwind is working..... -->
+      <span class=" bg-slate-700">{{ title }}</span>  
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,
