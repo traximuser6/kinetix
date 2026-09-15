@@ -105,32 +105,29 @@
             <mat-header-cell *matHeaderCellDef class="!justify-end !px-5 !py-4 !font-semibold !text-slate-600">
               Actions
             </mat-header-cell>
-
             <mat-cell *matCellDef="let post" class="!justify-end !px-5 !py-4 !flex !items-center">
               <div class="flex items-center gap-2">
                 <!-- visibility / view button -->
-                <button mat-icon-button matTooltip="View details" (click)="openPostDetail(post)"
-                  class="group !inline-flex !items-center !justify-center !h-9 !w-9 !rounded-lg !bg-slate-50 !text-slate-500 hover:!bg-indigo-50 hover:!text-indigo-600 hover:!shadow-sm transition-all duration-200">
+                <button matTooltip="View details" (click)="openPostDetail(post)"
+                  class="group inline-flex items-center justify-center h-9 w-9 rounded-lg bg-slate-50 text-slate-500 hover:bg-indigo-50 hover:text-indigo-600 hover:shadow-sm transition-all duration-200">
                   <mat-icon class="!text-xl !leading-none group-hover:scale-110 transition-transform duration-200">
                     visibility
                   </mat-icon>
                 </button>
 
                 <!-- edit button -->
-                <button mat-icon-button matTooltip="Edit post" [routerLink]="['/edit', post.id]"
-                  class="group !inline-flex !items-center !justify-center !h-9 !w-9 !rounded-lg !bg-slate-50 !text-slate-500 hover:!bg-blue-50 hover:!text-blue-600 hover:!shadow-sm transition-all duration-200">
+                <button matTooltip="Edit post" [routerLink]="['/edit', post.id]"
+                  class="group inline-flex items-center justify-center h-9 w-9 rounded-lg bg-slate-50 text-slate-500 hover:bg-blue-50 hover:text-blue-600 hover:shadow-sm transition-all duration-200">
                   <mat-icon class="!text-xl !leading-none group-hover:scale-110 transition-transform duration-200">
                     edit
                   </mat-icon>
                 </button>
 
                 <!-- delete / remove button -->
-                <button mat-icon-button matTooltip="Delete post" (click)="deletePost(post.id)"
-                  class="group !inline-flex !items-center !justify-center !h-9 !w-9 !rounded-lg !bg-slate-50 !text-slate-500 hover:!bg-red-50 hover:!text-red-600 hover:!shadow-sm transition-all duration-200">
-                  <mat-icon
-                    class="!text-xl !leading-none group-hover:scale-110 transition-transform duration-200">delete</mat-icon>
+                <button matTooltip="Delete post" (click)="deletePost(post.id)"
+                  class="group inline-flex items-center justify-center h-9 w-9 rounded-lg bg-slate-50 text-slate-500 hover:bg-red-50 hover:text-red-600 hover:shadow-sm transition-all duration-200">
+                  <mat-icon class="!text-xl !leading-none group-hover:scale-110 transition-transform duration-200">delete</mat-icon>
                 </button>
-                
               </div>
             </mat-cell>
           </ng-container>
