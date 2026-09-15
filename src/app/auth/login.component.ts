@@ -13,6 +13,7 @@ import { AuthService } from './auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnDestroy {
+
   private readonly fb = inject(FormBuilder);
   private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
