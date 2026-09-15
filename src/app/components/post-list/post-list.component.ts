@@ -23,7 +23,6 @@ import { CommonModule, DatePipe, SlicePipe } from '@angular/common';
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    SlicePipe,
     DatePipe,
   ],
   templateUrl: './post-list.component.html',
@@ -32,6 +31,7 @@ import { CommonModule, DatePipe, SlicePipe } from '@angular/common';
 export class PostListComponent implements OnInit {
   posts: Post[] = [];
   dataSource = new MatTableDataSource<Post>(this.posts);
+
   displayedColumns: string[] = [
     'id',
     'title',
@@ -40,12 +40,13 @@ export class PostListComponent implements OnInit {
     'description',
     'is_published',
     'created_at',
-    'actions',
+    'actions', // ✅ Must match matColumnDef="actions"
   ];
+
   private postService = inject(PostService);
   private dialog = inject(MatDialog);
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe((posts) => {

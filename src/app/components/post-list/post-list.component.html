@@ -1,153 +1,93 @@
-<mat-card
-  class="!mx-auto !mt-6 !max-w-7xl !overflow-hidden !rounded-2xl !shadow-sm"
->
+<mat-card class="!mx-auto !mt-6 !max-w-7xl !overflow-hidden !rounded-2xl !shadow-sm">
   <mat-card-content class="!p-0">
-
     <!-- Header -->
-    <div
-      class="flex items-center justify-between border-b border-slate-200 bg-white px-8 py-6"
-    >
+    <div class="flex items-center justify-between border-b border-slate-200 bg-white px-8 py-6">
       <div>
-        <h2 class="m-0 text-2xl font-semibold tracking-tight text-slate-800">
-          Posts
-        </h2>
-
-        <p class="mt-1 text-sm text-slate-500">
-          Manage your blog posts
-        </p>
+        <h2 class="m-0 text-2xl font-semibold tracking-tight text-slate-800">Posts</h2>
+        <p class="mt-1 text-sm text-slate-500">Manage your blog posts</p>
       </div>
 
       <button
         mat-raised-button
         color="primary"
         routerLink="/multi-step-create"
-        class="!rounded-lg !px-5"
+        class="!rounded-lg !px-6 !py-2.5 !text-sm !font-semibold !shadow-md hover:!shadow-lg transition-all duration-200"
       >
-        <mat-icon>add</mat-icon>
+        <mat-icon class="!mr-2 !text-lg">add</mat-icon>
         Create Post
       </button>
     </div>
 
     <!-- Table Section -->
     <div class="px-8 py-8">
-
-      <!-- Scroll Container -->
-      <div
-        class="h-[70vh] overflow-auto rounded-xl border border-slate-200"
-      >
-        <mat-table
-          [dataSource]="dataSource"
-          class="!min-w-[1100px] !bg-white"
-        >
-
+      <div class="h-[70vh] overflow-auto rounded-xl border border-slate-200">
+        <mat-table [dataSource]="dataSource" class="!min-w-[1100px] !bg-white">
           <!-- ID -->
           <ng-container matColumnDef="id">
             <mat-header-cell
               *matHeaderCellDef
-              class="!w-20 !min-w-20 !max-w-20 !justify-center !px-4 !font-semibold !text-slate-600"
+              class="!w-20 !justify-center !px-4 !py-4 !font-semibold !text-slate-600"
+              >ID</mat-header-cell
             >
-              ID
-            </mat-header-cell>
-
             <mat-cell
               *matCellDef="let post"
-              class="!w-20 !min-w-20 !max-w-20 !justify-center !px-4 !text-sm !text-slate-500"
+              class="!w-20 !justify-center !px-4 !py-4 !text-sm !text-slate-500"
+              >{{ post.id }}</mat-cell
             >
-              {{ post.id }}
-            </mat-cell>
           </ng-container>
 
           <!-- Title -->
           <ng-container matColumnDef="title">
-            <mat-header-cell
-              *matHeaderCellDef
-              class="!px-5 !font-semibold !text-slate-600"
+            <mat-header-cell *matHeaderCellDef class="!px-5 !py-4 !font-semibold !text-slate-600"
+              >Title</mat-header-cell
             >
-              Title
-            </mat-header-cell>
-
-            <mat-cell
-              *matCellDef="let post"
-              class="!px-5 !font-medium !text-slate-800"
-            >
-              {{ post.title }}
-            </mat-cell>
+            <mat-cell *matCellDef="let post" class="!px-5 !py-4 !font-medium !text-slate-800">{{
+              post.title
+            }}</mat-cell>
           </ng-container>
 
           <!-- Slug -->
           <ng-container matColumnDef="slug">
-            <mat-header-cell
-              *matHeaderCellDef
-              class="!px-5 !font-semibold !text-slate-600"
+            <mat-header-cell *matHeaderCellDef class="!px-5 !py-4 !font-semibold !text-slate-600"
+              >Slug</mat-header-cell
             >
-              Slug
-            </mat-header-cell>
-
-            <mat-cell
-              *matCellDef="let post"
-              class="!px-5 !text-sm !text-slate-500"
-            >
-              {{ post.slug }}
-            </mat-cell>
+            <mat-cell *matCellDef="let post" class="!px-5 !py-4 !text-sm !text-slate-500">{{
+              post.slug
+            }}</mat-cell>
           </ng-container>
 
           <!-- Excerpt -->
           <ng-container matColumnDef="excerpt">
-            <mat-header-cell
-              *matHeaderCellDef
-              class="!px-5 !font-semibold !text-slate-600"
+            <mat-header-cell *matHeaderCellDef class="!px-5 !py-4 !font-semibold !text-slate-600"
+              >Excerpt</mat-header-cell
             >
-              Excerpt
-            </mat-header-cell>
-
-            <mat-cell
-              *matCellDef="let post"
-              class="!px-5 !text-sm !text-slate-600"
-            >
-              {{ post.excerpt }}
-            </mat-cell>
+            <mat-cell *matCellDef="let post" class="!px-5 !py-4 !text-sm !text-slate-600">{{
+              post.excerpt
+            }}</mat-cell>
           </ng-container>
 
           <!-- Description -->
           <ng-container matColumnDef="description">
-            <mat-header-cell
-              *matHeaderCellDef
-              class="!px-5 !font-semibold !text-slate-600"
+            <mat-header-cell *matHeaderCellDef class="!px-5 !py-4 !font-semibold !text-slate-600"
+              >Description</mat-header-cell
             >
-              Description
-            </mat-header-cell>
-
-            <mat-cell
-              *matCellDef="let post"
-              class="!px-5 !text-sm !text-slate-600"
-            >
+            <mat-cell *matCellDef="let post" class="!px-5 !py-4 !text-sm !text-slate-600">
               <span
                 [matTooltip]="post.description"
                 matTooltipClass="description-tooltip"
-                class="cursor-help"
+                class="block max-w-[200px] cursor-help truncate"
               >
-                {{
-                  post.description.length > 20
-                    ? (post.description | slice : 0 : 20) + '...'
-                    : post.description
-                }}
+                {{ post.description }}
               </span>
             </mat-cell>
           </ng-container>
 
           <!-- Status -->
           <ng-container matColumnDef="is_published">
-            <mat-header-cell
-              *matHeaderCellDef
-              class="!px-5 !font-semibold !text-slate-600"
+            <mat-header-cell *matHeaderCellDef class="!px-5 !py-4 !font-semibold !text-slate-600"
+              >Status</mat-header-cell
             >
-              Status
-            </mat-header-cell>
-
-            <mat-cell
-              *matCellDef="let post"
-              class="!px-5"
-            >
+            <mat-cell *matCellDef="let post" class="!px-5 !py-4">
               <span
                 class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
                 [ngClass]="
@@ -158,13 +98,8 @@
               >
                 <span
                   class="mr-1.5 h-1.5 w-1.5 rounded-full"
-                  [ngClass]="
-                    post.is_published
-                      ? 'bg-emerald-500'
-                      : 'bg-slate-400'
-                  "
+                  [ngClass]="post.is_published ? 'bg-emerald-500' : 'bg-slate-400'"
                 ></span>
-
                 {{ post.is_published ? 'Published' : 'Draft' }}
               </span>
             </mat-cell>
@@ -172,97 +107,83 @@
 
           <!-- Created At -->
           <ng-container matColumnDef="created_at">
-            <mat-header-cell
-              *matHeaderCellDef
-              class="!px-5 !font-semibold !text-slate-600"
+            <mat-header-cell *matHeaderCellDef class="!px-5 !py-4 !font-semibold !text-slate-600"
+              >Created</mat-header-cell
             >
-              Created
-            </mat-header-cell>
-
-            <mat-cell
-              *matCellDef="let post"
-              class="!px-5 !text-sm !text-slate-500"
-            >
-              {{ post.created_at | date }}
-            </mat-cell>
+            <mat-cell *matCellDef="let post" class="!px-5 !py-4 !text-sm !text-slate-500">{{
+              post.created_at | date
+            }}</mat-cell>
           </ng-container>
 
-          <!-- Actions -->
+          <!-- ✅ FIXED: Actions column now properly wrapped -->
           <ng-container matColumnDef="actions">
             <mat-header-cell
               *matHeaderCellDef
-              class="!justify-end !px-5 !font-semibold !text-slate-600"
+              class="!justify-end !px-5 !py-4 !font-semibold !text-slate-600"
+              >Actions</mat-header-cell
             >
-              Actions
-            </mat-header-cell>
-
-            <mat-cell
-              *matCellDef="let post"
-              class="!justify-end !px-5"
-            >
-              <div class="flex items-center gap-1">
-
+            <mat-cell *matCellDef="let post" class="!justify-end !px-5 !py-4">
+              <div class="flex items-center gap-2">
                 <button
                   mat-icon-button
-                  color="primary"
-                  matTooltip="View post"
+                  matTooltip="View details"
                   (click)="openPostDetail(post)"
-                  class="!text-slate-500 hover:!bg-indigo-50 hover:!text-indigo-600"
+                  class="group !h-9 !w-9 !rounded-lg !bg-slate-50 !text-slate-500 hover:!bg-indigo-50 hover:!text-indigo-600 hover:!shadow-sm transition-all duration-200"
                 >
-                  <mat-icon>visibility</mat-icon>
+                  <mat-icon class="!text-xl group-hover:scale-110 transition-transform duration-200"
+                    >visibility</mat-icon
+                  >
                 </button>
 
                 <button
                   mat-icon-button
-                  color="accent"
                   matTooltip="Edit post"
                   [routerLink]="['/edit', post.id]"
-                  class="!text-slate-500 hover:!bg-blue-50 hover:!text-blue-600"
+                  class="group !h-9 !w-9 !rounded-lg !bg-slate-50 !text-slate-500 hover:!bg-blue-50 hover:!text-blue-600 hover:!shadow-sm transition-all duration-200"
                 >
-                  <mat-icon>edit</mat-icon>
+                  <mat-icon class="!text-xl group-hover:scale-110 transition-transform duration-200"
+                    >edit</mat-icon
+                  >
                 </button>
 
                 <button
                   mat-icon-button
-                  color="warn"
                   matTooltip="Delete post"
                   (click)="deletePost(post.id)"
-                  class="!text-slate-500 hover:!bg-red-50 hover:!text-red-600"
+                  class="group !h-9 !w-9 !rounded-lg !bg-slate-50 !text-slate-500 hover:!bg-red-50 hover:!text-red-600 hover:!shadow-sm transition-all duration-200"
                 >
-                  <mat-icon>delete</mat-icon>
+                  <mat-icon class="!text-xl group-hover:scale-110 transition-transform duration-200"
+                    >delete</mat-icon
+                  >
                 </button>
-
               </div>
             </mat-cell>
           </ng-container>
 
-          <!-- Header -->
+          <!-- Header & Rows -->
           <mat-header-row
             *matHeaderRowDef="displayedColumns"
-            class="sticky top-0 z-10 !h-14 !min-h-14 !border-b !border-slate-200 !bg-slate-50"
+            class="sticky top-0 z-10 !min-h-14 !border-b !border-slate-200 !bg-slate-50"
           ></mat-header-row>
-
-          <!-- Rows -->
           <mat-row
             *matRowDef="let row; columns: displayedColumns"
-            class="!h-16 !min-h-16 !border-b !border-slate-100 hover:!bg-slate-50"
+            class="!min-h-16 !border-b !border-slate-100 hover:!bg-slate-50 transition-colors duration-150"
           ></mat-row>
 
+          <!-- ✅ NEW: Empty State -->
+          <tr *matNoDataRow class="mat-mdc-row">
+            <td class="mat-mdc-cell !py-12 text-center" [attr.colspan]="displayedColumns.length">
+              <div class="flex flex-col items-center justify-center text-slate-400">
+                <mat-icon class="!mb-3 !text-5xl">inbox</mat-icon>
+                <p class="text-lg font-medium">No posts found</p>
+                <p class="text-sm">Create your first post to get started</p>
+              </div>
+            </td>
+          </tr>
         </mat-table>
       </div>
     </div>
-
   </mat-card-content>
 
-  <!-- Floating Add Button -->
-  <button
-    mat-fab
-    color="primary"
-    routerLink="/create"
-    matTooltip="Create post"
-    class="!fixed !bottom-6 !right-6 !shadow-lg"
-  >
-    <mat-icon>add</mat-icon>
-  </button>
-
+  <!-- ✅ REMOVED: Duplicate FAB (header button already handles creation) -->
 </mat-card>

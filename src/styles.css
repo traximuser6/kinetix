@@ -59,3 +59,33 @@ body {
   border-radius: 8px;
   /* Ensure the container matches the snackbar */
 }
+
+
+/* default values for border */
+
+
+/* Ensure Material table cells respect our custom padding */
+.mat-mdc-cell,
+.mat-mdc-header-cell {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+/* Prevent border from collapsing into content */
+.mat-mdc-row {
+  border-bottom-width: 1px !important;
+  border-bottom-style: solid !important;
+}
+
+/* Beautiful focus rings that match your design */
+button.mat-mdc-icon-button:focus-visible {
+  outline: 2px solid #6366f1;
+  /* indigo-500 */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* Ensure focus state overrides hover state */
+button.mat-mdc-icon-button:focus-visible:hover {
+  transform: none;
+}
