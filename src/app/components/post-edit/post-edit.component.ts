@@ -28,7 +28,7 @@ import { ToastService } from '../../services/toast.service';
     MatError,
   ],
   templateUrl: './post-edit.component.html',
-  styleUrls: ['./post-edit.component.css'],
+  styleUrl: './post-edit.component.css'
 })
 export class PostEditComponent implements OnInit {
   postForm: FormGroup;

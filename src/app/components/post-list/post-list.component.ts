@@ -26,7 +26,7 @@ import { CommonModule, DatePipe, SlicePipe } from '@angular/common';
     DatePipe,
   ],
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css'],
+  styleUrl: './post-list.component.css'
 })
 export class PostListComponent implements OnInit {
   posts: Post[] = [];

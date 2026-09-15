@@ -25,7 +25,7 @@ import { Step2Component } from '../multi-step-post-form/step2/step2.component';
     Step2Component,
   ],
   templateUrl: './multi-step-form.component.html',
-  styleUrls: ['./multi-step-form.component.css'],
+  styleUrl: './multi-step-form.component.css'
 })
 export class MultiStepPostFormComponent implements OnInit {
   private fb = inject(FormBuilder);

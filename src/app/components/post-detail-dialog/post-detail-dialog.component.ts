@@ -31,13 +31,13 @@ import { MatIcon } from '@angular/material/icon';
     DatePipe,
   ],
   templateUrl: './post-detail-dialog.component.html',
-  styleUrls: ['./post-detail-dialog.component.css'],
+  styleUrl: './post-detail-dialog.component.css'
 })
 export class PostDetailDialogComponent {
   protected dialogRef = inject(MatDialogRef<PostDetailDialogComponent>);
   private router = inject(Router);
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { post: Post }) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { post: Post }) { }
 
   navigateToEdit(): void {
     this.dialogRef.close();
