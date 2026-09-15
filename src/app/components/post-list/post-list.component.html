@@ -1,15 +1,20 @@
 <mat-card
-  class="!mx-auto !flex !h-[calc(100vh-100px)] !max-w-7xl !flex-col !overflow-hidden !rounded-2xl !shadow-sm"
+  class="!mx-auto !mt-6 !max-w-7xl !overflow-hidden !rounded-2xl !shadow-sm"
 >
-  <mat-card-content class="!flex !min-h-0 !flex-1 !flex-col !p-0">
+  <mat-card-content class="!p-0">
+
     <!-- Header -->
     <div
-      class="flex shrink-0 items-center justify-between border-b border-slate-200 bg-white px-6 py-5"
+      class="flex items-center justify-between border-b border-slate-200 bg-white px-8 py-6"
     >
       <div>
-        <h2 class="m-0 text-xl font-semibold tracking-tight text-slate-800">Posts</h2>
+        <h2 class="m-0 text-2xl font-semibold tracking-tight text-slate-800">
+          Posts
+        </h2>
 
-        <p class="mt-1 text-sm text-slate-500">Manage your blog posts</p>
+        <p class="mt-1 text-sm text-slate-500">
+          Manage your blog posts
+        </p>
       </div>
 
       <button
@@ -24,22 +29,29 @@
     </div>
 
     <!-- Table Section -->
-    <div class="flex min-h-0 flex-1 flex-col px-6 py-6">
+    <div class="px-8 py-8">
+
       <!-- Scroll Container -->
-      <div class="min-h-0 flex-1 overflow-auto rounded-xl border border-slate-200">
-        <mat-table [dataSource]="dataSource" class="!min-w-[1100px] !bg-white">
+      <div
+        class="h-[70vh] overflow-auto rounded-xl border border-slate-200"
+      >
+        <mat-table
+          [dataSource]="dataSource"
+          class="!min-w-[1100px] !bg-white"
+        >
+
           <!-- ID -->
           <ng-container matColumnDef="id">
             <mat-header-cell
               *matHeaderCellDef
-              class="!w-20 !min-w-20 !max-w-20 !justify-center !font-semibold !text-slate-600"
+              class="!w-20 !min-w-20 !max-w-20 !justify-center !px-4 !font-semibold !text-slate-600"
             >
               ID
             </mat-header-cell>
 
             <mat-cell
               *matCellDef="let post"
-              class="!w-20 !min-w-20 !max-w-20 !justify-center !text-sm !text-slate-500"
+              class="!w-20 !min-w-20 !max-w-20 !justify-center !px-4 !text-sm !text-slate-500"
             >
               {{ post.id }}
             </mat-cell>
@@ -47,44 +59,68 @@
 
           <!-- Title -->
           <ng-container matColumnDef="title">
-            <mat-header-cell *matHeaderCellDef class="!font-semibold !text-slate-600">
+            <mat-header-cell
+              *matHeaderCellDef
+              class="!px-5 !font-semibold !text-slate-600"
+            >
               Title
             </mat-header-cell>
 
-            <mat-cell *matCellDef="let post" class="!font-medium !text-slate-800">
+            <mat-cell
+              *matCellDef="let post"
+              class="!px-5 !font-medium !text-slate-800"
+            >
               {{ post.title }}
             </mat-cell>
           </ng-container>
 
           <!-- Slug -->
           <ng-container matColumnDef="slug">
-            <mat-header-cell *matHeaderCellDef class="!font-semibold !text-slate-600">
+            <mat-header-cell
+              *matHeaderCellDef
+              class="!px-5 !font-semibold !text-slate-600"
+            >
               Slug
             </mat-header-cell>
 
-            <mat-cell *matCellDef="let post" class="!text-sm !text-slate-500">
+            <mat-cell
+              *matCellDef="let post"
+              class="!px-5 !text-sm !text-slate-500"
+            >
               {{ post.slug }}
             </mat-cell>
           </ng-container>
 
           <!-- Excerpt -->
           <ng-container matColumnDef="excerpt">
-            <mat-header-cell *matHeaderCellDef class="!font-semibold !text-slate-600">
+            <mat-header-cell
+              *matHeaderCellDef
+              class="!px-5 !font-semibold !text-slate-600"
+            >
               Excerpt
             </mat-header-cell>
 
-            <mat-cell *matCellDef="let post" class="!text-sm !text-slate-600">
+            <mat-cell
+              *matCellDef="let post"
+              class="!px-5 !text-sm !text-slate-600"
+            >
               {{ post.excerpt }}
             </mat-cell>
           </ng-container>
 
           <!-- Description -->
           <ng-container matColumnDef="description">
-            <mat-header-cell *matHeaderCellDef class="!font-semibold !text-slate-600">
+            <mat-header-cell
+              *matHeaderCellDef
+              class="!px-5 !font-semibold !text-slate-600"
+            >
               Description
             </mat-header-cell>
 
-            <mat-cell *matCellDef="let post" class="!text-sm !text-slate-600">
+            <mat-cell
+              *matCellDef="let post"
+              class="!px-5 !text-sm !text-slate-600"
+            >
               <span
                 [matTooltip]="post.description"
                 matTooltipClass="description-tooltip"
@@ -101,13 +137,19 @@
 
           <!-- Status -->
           <ng-container matColumnDef="is_published">
-            <mat-header-cell *matHeaderCellDef class="!font-semibold !text-slate-600">
+            <mat-header-cell
+              *matHeaderCellDef
+              class="!px-5 !font-semibold !text-slate-600"
+            >
               Status
             </mat-header-cell>
 
-            <mat-cell *matCellDef="let post">
+            <mat-cell
+              *matCellDef="let post"
+              class="!px-5"
+            >
               <span
-                class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium"
+                class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
                 [ngClass]="
                   post.is_published
                     ? 'bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-600/20'
@@ -116,7 +158,11 @@
               >
                 <span
                   class="mr-1.5 h-1.5 w-1.5 rounded-full"
-                  [ngClass]="post.is_published ? 'bg-emerald-500' : 'bg-slate-400'"
+                  [ngClass]="
+                    post.is_published
+                      ? 'bg-emerald-500'
+                      : 'bg-slate-400'
+                  "
                 ></span>
 
                 {{ post.is_published ? 'Published' : 'Draft' }}
@@ -126,24 +172,36 @@
 
           <!-- Created At -->
           <ng-container matColumnDef="created_at">
-            <mat-header-cell *matHeaderCellDef class="!font-semibold !text-slate-600">
+            <mat-header-cell
+              *matHeaderCellDef
+              class="!px-5 !font-semibold !text-slate-600"
+            >
               Created
             </mat-header-cell>
 
-            <mat-cell *matCellDef="let post" class="!text-sm !text-slate-500">
+            <mat-cell
+              *matCellDef="let post"
+              class="!px-5 !text-sm !text-slate-500"
+            >
               {{ post.created_at | date }}
             </mat-cell>
           </ng-container>
 
           <!-- Actions -->
           <ng-container matColumnDef="actions">
-            <mat-header-cell *matHeaderCellDef class="!justify-end !font-semibold !text-slate-600">
+            <mat-header-cell
+              *matHeaderCellDef
+              class="!justify-end !px-5 !font-semibold !text-slate-600"
+            >
               Actions
             </mat-header-cell>
 
-            <mat-cell *matCellDef="let post" class="!justify-end">
+            <mat-cell
+              *matCellDef="let post"
+              class="!justify-end !px-5"
+            >
               <div class="flex items-center gap-1">
-                <!-- View -->
+
                 <button
                   mat-icon-button
                   color="primary"
@@ -154,7 +212,6 @@
                   <mat-icon>visibility</mat-icon>
                 </button>
 
-                <!-- Edit -->
                 <button
                   mat-icon-button
                   color="accent"
@@ -165,7 +222,6 @@
                   <mat-icon>edit</mat-icon>
                 </button>
 
-                <!-- Delete -->
                 <button
                   mat-icon-button
                   color="warn"
@@ -175,24 +231,27 @@
                 >
                   <mat-icon>delete</mat-icon>
                 </button>
+
               </div>
             </mat-cell>
           </ng-container>
 
-          <!-- Header Row -->
+          <!-- Header -->
           <mat-header-row
             *matHeaderRowDef="displayedColumns"
-            class="sticky top-0 z-10 !h-12 !min-h-12 !border-b !border-slate-200 !bg-slate-50"
+            class="sticky top-0 z-10 !h-14 !min-h-14 !border-b !border-slate-200 !bg-slate-50"
           ></mat-header-row>
 
-          <!-- Data Rows -->
+          <!-- Rows -->
           <mat-row
             *matRowDef="let row; columns: displayedColumns"
-            class="!h-14 !min-h-14 !border-b !border-slate-100 hover:!bg-slate-50"
+            class="!h-16 !min-h-16 !border-b !border-slate-100 hover:!bg-slate-50"
           ></mat-row>
+
         </mat-table>
       </div>
     </div>
+
   </mat-card-content>
 
   <!-- Floating Add Button -->
@@ -205,4 +264,5 @@
   >
     <mat-icon>add</mat-icon>
   </button>
+
 </mat-card>
