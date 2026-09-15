@@ -1,4 +1,3 @@
-// src/app/services/toast.service.ts
 import { inject, Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
@@ -16,9 +15,9 @@ export class ToastService {
   ): void {
     const defaultConfig: MatSnackBarConfig = {
       duration: 3500,
-      horizontalPosition: 'end',       // ✅ 'end' respects RTL + aligns right
+      horizontalPosition: 'end',
       verticalPosition: 'top',
-      panelClass: ['custom-toast', `toast-${type}`], // ✅ Base + type class
+      panelClass: ['custom-toast', `toast-${type}`],
       politeness: 'polite',
     };
 

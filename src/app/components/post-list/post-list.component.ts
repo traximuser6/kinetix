@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { CommonModule, DatePipe } from '@angular/common';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-post-list',
@@ -28,6 +29,15 @@ import { CommonModule, DatePipe } from '@angular/common';
   styleUrl: './post-list.component.css',
 })
 export class PostListComponent implements OnInit {
+
+
+  constructor(
+    private readonly toastService: ToastService
+  ) {
+
+  }
+
+
   posts: Post[] = [];
   dataSource = new MatTableDataSource<Post>(this.posts);
 
