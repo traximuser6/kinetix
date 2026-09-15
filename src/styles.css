@@ -89,3 +89,53 @@ button.mat-mdc-icon-button:focus-visible {
 button.mat-mdc-icon-button:focus-visible:hover {
   transform: none;
 }
+
+
+/* Smooth slide-in animation from top-right */
+.custom-snackbar {
+  /* Override default Material snackbar positioning for top-right slide */
+  margin-top: 16px !important;
+  margin-right: 16px !important;
+
+  /* Visual polish matching your Tailwind design */
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+  font-family: inherit !important;
+  min-width: 300px !important;
+  max-width: 420px !important;
+
+  /* Action button styling */
+  .mdc-button__label {
+    color: #818cf8 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.025em !important;
+  }
+
+  /* Message text */
+  .mat-mdc-snack-bar-label {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    padding: 4px 0 !important;
+  }
+}
+
+/* Override the default animation to slide from right instead of fade */
+.cdk-overlay-pane.mat-mdc-snack-bar-panel {
+  animation: slideInRight 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) forwards !important;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
