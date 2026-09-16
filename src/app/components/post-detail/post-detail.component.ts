@@ -29,7 +29,7 @@ import { DatePipe } from '@angular/common';
     DatePipe,
   ],
   templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css'],
+  styleUrl: './post-detail.component.css',
 })
 export class PostDetailComponent implements OnInit {
   post: Post | undefined;

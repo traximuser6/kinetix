@@ -3,38 +3,36 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 export type ToastType = 'success' | 'warning' | 'error';
 
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable({ providedIn: 'root' })
 export class ToastService {
   private snackBar = inject(MatSnackBar);
 
-  showToast(message: string,
+  showToast(
+    message: string,
     type: ToastType = 'success',
-    action: string = 'Close',
-    config: MatSnackBarConfig = {}): void {
+    action: string = '',
+    config: Partial<MatSnackBarConfig> = {}
+  ): void {
     const defaultConfig: MatSnackBarConfig = {
-      duration: 3000,
-      horizontalPosition: 'right',
+      duration: 3500,
+      horizontalPosition: 'end',
       verticalPosition: 'top',
-      panelClass: [this.getPanelClass(type)]
+      panelClass: ['custom-toast', `toast-${type}`],
+      politeness: 'polite',
     };
 
-    const finalConfig: MatSnackBarConfig = { ...defaultConfig, ...config };
-    this.snackBar.open(message, action, finalConfig);
+    this.snackBar.open(message, action, { ...defaultConfig, ...config });
   }
 
-  private getPanelClass(type: ToastType): string {
-    switch (type) {
-      case 'success':
-        return 'snack-bar-success';
-      case 'warning':
-        return 'snack-bar-warning';
-      case 'error':
-        return 'snack-bar-error';
-      default:
-        return 'snack-bar-success';
-    }
+  success(message: string, action?: string): void {
+    this.showToast(message, 'success', action || '');
+  }
+
+  error(message: string, action?: string): void {
+    this.showToast(message, 'error', action || 'Dismiss');
+  }
+
+  warning(message: string, action?: string): void {
+    this.showToast(message, 'warning', action || '');
   }
 }
